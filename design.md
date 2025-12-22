@@ -1,113 +1,74 @@
-# Portfolio Design Style Guide
+# Portfolio Website Design Style Guide
 
 ## Design Philosophy
 
-### Visual Language
-**Modern Glassmorphism with Dark Elegance**: The portfolio embraces the sophisticated glassmorphism trend, combining translucent glass-like elements with a carefully curated dark color palette. This creates depth, visual interest, and a premium feel that immediately communicates technical sophistication and modern design sensibilities.
-
 ### Color Palette
-**Primary Colors:**
-- Deep Space: #0b0f19 (main background)
-- Slate Dark: #1e293b (card backgrounds)
-- Glass White: rgba(255, 255, 255, 0.05) (glassmorphism effect)
-- Accent Blue: #3b82f6 (highlights and CTAs)
-- Accent Purple: #8b5cf6 (secondary highlights)
-
-**Text Colors:**
-- Pure White: #ffffff (primary text)
-- Light Gray: #94a3b8 (secondary text)
-- Medium Gray: #64748b (subtle text)
+- **Primary Background**: Pure white (#FFFFFF) - creates a clean, premium feel
+- **Secondary Background**: Subtle light gray (#F8F9FA) for card backgrounds and sections
+- **Accent Color**: Deep sapphire blue (#1E3A8A) - for buttons, active links, and key highlights
+- **Text Primary**: Dark charcoal (#1F2937) - high contrast for readability
+- **Text Secondary**: Medium gray (#6B7280) - for supporting text and metadata
+- **Border Color**: Light gray (#E5E7EB) - subtle element separation
 
 ### Typography
-**Primary Font**: Inter (modern sans-serif for clean, professional look)
-**Secondary Font**: JetBrains Mono (monospace for code/technical elements)
-**Hierarchy:**
-- H1: 3rem (48px) - Hero titles
-- H2: 2.25rem (36px) - Section headers
-- H3: 1.5rem (24px) - Card titles
-- Body: 1rem (16px) - Regular text
-- Small: 0.875rem (14px) - Captions
+- **Primary Font**: Inter (sans-serif) - modern, clean, highly readable
+- **Secondary Font**: JetBrains Mono (monospace) - for code snippets and technical content
+- **Heading Hierarchy**: 
+  - H1: 2.5rem, bold weight
+  - H2: 2rem, semibold weight
+  - H3: 1.5rem, medium weight
+- **Body Text**: 1rem, regular weight with 1.6 line height for optimal readability
 
-## Visual Effects
+### Visual Language
+- **Minimalist Approach**: Clean layouts with generous white space
+- **Premium Feel**: High-quality imagery and subtle shadows for depth
+- **Professional Tone**: Sophisticated color choices and typography
+- **Technical Precision**: Sharp edges, consistent spacing, geometric shapes
+
+## Visual Effects & Styling
 
 ### Used Libraries
-- **Anime.js**: Smooth element animations and transitions
-- **Typed.js**: Typewriter effect for hero text
-- **Splitting.js**: Text animation effects
-- **ECharts.js**: Interactive skill visualization charts
-- **p5.js**: Background particle effects
-- **Pixi.js**: Advanced visual effects
-- **Splide.js**: Project image carousels
+- **Anime.js**: Smooth page transitions and element animations
+- **ECharts.js**: Skills visualization and data representation
+- **Typed.js**: Typewriter effect for dynamic text
+- **Splitting.js**: Text animation effects for headings
+- **p5.js**: Interactive background elements and creative coding
+- **Pixi.js**: Advanced visual effects for project showcases
+- **Splide.js**: Image carousels and project galleries
 
-### Glassmorphism Effects
-**Card Styling:**
-```css
-background: rgba(255, 255, 255, 0.05);
-backdrop-filter: blur(12px);
-border: 1px solid rgba(255, 255, 255, 0.1);
-border-radius: 16px;
-box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-```
-
-### Animation Strategy
-**Scroll Animations:**
-- Elements fade in with subtle upward motion (20px)
-- Staggered delays for card grids (100ms intervals)
-- Timeline items slide in from alternating sides
-- Skill bars animate width on scroll into view
-
-**Hover Effects:**
-- Cards lift with increased shadow and scale (1.02x)
-- Buttons glow with accent color on hover
-- Social icons rotate and scale on hover
-- Project cards tilt slightly (3deg) for depth
+### Animation & Effects
+- **Scroll Animations**: Subtle fade-in and slide-up effects (16-24px movement)
+- **Hover Effects**: 3D tilt on cards, shadow expansion, color transitions
+- **Loading States**: Skeleton screens and progressive loading
+- **Micro-interactions**: Button press feedback, form validation animations
+- **Background**: Subtle particle system using p5.js for ambient movement
 
 ### Header Effects
-**Background**: Animated particle system using p5.js with floating geometric shapes in deep space theme
-**Hero Text**: Typewriter animation with gradient color cycling
-**Profile Image**: Subtle glow effect with animated border
+- **Navigation Bar**: Fixed position with subtle backdrop blur
+- **Active State**: Blue underline animation for current page
+- **Logo Animation**: Subtle glow effect on hover
+- **Mobile Menu**: Smooth slide-in transition
+
+### Card Design
+- **Elevation**: Soft drop shadows (0 4px 6px rgba(0, 0, 0, 0.05))
+- **Border Radius**: 12px for modern, friendly appearance
+- **Hover State**: Lift effect with increased shadow and slight scale
+- **Content Hierarchy**: Clear visual separation between elements
 
 ### Interactive Elements
-**Timeline**: Vertical line with pulsing dots, cards slide in on scroll
-**Project Grid**: Masonry layout with hover zoom and overlay details
-**Skills Visualization**: Animated radar chart and progress bars
-**Navigation**: Smooth scroll with active state indicators
+- **Buttons**: Rounded corners, smooth color transitions, press animations
+- **Form Fields**: Focus states with blue accent border
+- **Links**: Subtle underline animation on hover
+- **Icons**: Consistent stroke width, aligned with text baseline
 
 ### Responsive Design
-**Desktop**: Fixed sidebar (300px) with main content area
-**Tablet**: Collapsed sidebar with hamburger menu
-**Mobile**: Full-width cards with touch-friendly interactions
+- **Breakpoints**: Mobile-first approach with fluid scaling
+- **Sidebar**: Collapsible on mobile, fixed on desktop
+- **Typography**: Scalable font sizes based on viewport
+- **Touch Targets**: Minimum 44px for mobile accessibility
 
-### Accessibility Features
-- High contrast text (4.5:1 minimum ratio)
-- Focus indicators for keyboard navigation
-- Reduced motion options for animations
-- Screen reader friendly structure
-
-## Component Styling Guidelines
-
-### Sidebar Profile Card
-- Fixed position with glassmorphism background
-- Rounded profile image with subtle border animation
-- Social links with hover scale effects
-- Contact information with copy-to-clipboard functionality
-
-### Experience Timeline
-- Vertical line with gradient styling
-- Pulsing dots for each timeline item
-- Cards with alternating left/right alignment
-- Smooth slide-in animations on scroll
-
-### Project Showcase
-- Grid layout with masonry effect
-- Glassmorphism cards with hover lift
-- Modal overlays for project details
-- Tech stack badges with color coding
-
-### Skills Section
-- Interactive radar chart using ECharts
-- Animated progress bars for skill levels
-- Category filtering with smooth transitions
-- Visual proficiency indicators
-
-This design system creates a cohesive, professional portfolio that showcases technical expertise while maintaining visual elegance and modern design standards.
+### Accessibility
+- **Color Contrast**: WCAG AA compliant (4.5:1 minimum)
+- **Focus Indicators**: Visible keyboard navigation
+- **Alt Text**: Descriptive image alternatives
+- **Semantic HTML**: Proper heading hierarchy and landmarks

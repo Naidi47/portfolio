@@ -1,146 +1,143 @@
-# Portfolio Project Outline
+# Portfolio Website Project Outline
 
 ## File Structure
 ```
 /mnt/okcomputer/output/
-├── index.html              # Main landing page with hero and overview
-├── experience.html         # Timeline-based experience and education
-├── projects.html          # Interactive project showcase
-├── skills.html            # Skills visualization and certifications
-├── main.js                # Core JavaScript functionality
-├── resources/             # Assets and media files
-│   ├── profile-image.png  # Generated professional headshot
-│   ├── hero-bg.jpg        # AI/ML themed hero background
-│   ├── project-*.jpg      # Project showcase images
-│   └── tech-icons/        # Technology and framework icons
-├── interaction.md         # Interaction design documentation
-├── design.md             # Design style guide
-└── outline.md            # This project outline
+├── index.html              # About Me page (main landing)
+├── projects.html           # Projects showcase
+├── skills.html             # Technical skills & certifications
+├── ai-assistant.html       # Interactive AI chat interface
+├── contact.html            # Contact form & information
+├── main.js                 # Core JavaScript functionality
+└── resources/              # Assets folder
+    ├── professional-portrait.png
+    ├── project-images/      # Downloaded ML/AI images
+    └── icons/               # Social media icons
 ```
 
 ## Page Breakdown
 
-### 1. index.html - Landing Page
-**Purpose**: First impression with hero section and navigation
-**Sections**:
-- Fixed sidebar with profile card and navigation
-- Hero section with animated background and typewriter text
-- Brief introduction with key highlights
-- Featured projects preview
-- Skills overview with animated counters
-- Contact call-to-action
+### 1. index.html - About Me
+**Layout**: Two-column (sidebar + content)
+**Content**:
+- Left Sidebar:
+  - Professional portrait (4:5 aspect ratio, rounded corners)
+  - Name: "Muchukuntla Brahmanaidu"
+  - Title: "AI/ML Engineer"
+  - "View Resume" button (sapphire blue)
+  - Contact info with icons (phone, email, LinkedIn, GitHub)
 
-**Key Features**:
-- Particle background animation using p5.js
-- Typewriter effect for name and role
-- Smooth scroll navigation to other pages
-- Social media links with hover animations
+- Right Content:
+  - Navigation bar (About, Projects, Skills, AI Assistant, Contact)
+  - "About Me" section with professional bio
+  - "Experience & Education" cards (side-by-side)
+    - Experience: ML Engineer Intern at Zithara.AI
+    - Education: Bachelor of Engineering in CS
+  - Background: Subtle particle system animation
 
-### 2. experience.html - Experience Timeline
-**Purpose**: Detailed education and work experience
-**Sections**:
-- Timeline layout for education (2021-2025)
-- Work experience and internships
-- Certifications and achievements
-- Key focus areas and accomplishments
+### 2. projects.html - Projects Showcase
+**Content**:
+- Navigation bar (consistent across pages)
+- "My Projects" header with blue underline
+- Project filter buttons (All, ML/DL, NLP, Computer Vision, MLOps)
+- Grid layout of project cards:
+  - Visual Search Engine (Zithara.AI)
+  - MLOps Pipeline with MLflow
+  - LLM-Powered Assistant with RAG
+  - BERT Semantic Search
+- Each card includes:
+  - Project images (multiple per project)
+  - Technology stack tags
+  - Description and outcomes
+  - GitHub/demo links
+- Image carousel for each project using Splide.js
 
-**Key Features**:
-- Vertical timeline with connecting dots
-- Animated cards that slide in on scroll
-- Expandable details for each experience
-- Hover effects on timeline items
+### 3. skills.html - Technical Skills
+**Content**:
+- Navigation bar
+- "Technical Skills" header
+- Interactive radar chart (ECharts.js) showing proficiency
+- Skill categories:
+  - Languages & Core (Python, SQL, Pandas, NumPy)
+  - ML & DL (PyTorch, Scikit-learn, TensorFlow)
+  - MLOps & Engineering (FastAPI, Docker, MLflow, AWS)
+  - Generative AI & NLP (LangChain, Hugging Face, BERT)
+  - Data Visualization (Power BI, Matplotlib, Seaborn)
+- Certifications section with badges
+- Learning timeline visualization
 
-### 3. projects.html - Project Showcase
-**Purpose**: Interactive project portfolio
-**Sections**:
-- Project grid with filtering options
-- Featured projects with detailed descriptions
-- Tech stack visualization
-- GitHub links and live demos
+### 4. ai-assistant.html - Interactive AI Chat
+**Content**:
+- Navigation bar
+- "AI Assistant" header with description
+- Chat interface:
+  - Message display area
+  - Quick question buttons
+  - Text input field
+  - Typing indicators
+- Pre-defined questions about:
+  - Experience and projects
+  - Technical skills
+  - Certifications
+  - Career goals
+- Smooth animations for messages
+- Chat history persistence
 
-**Key Features**:
-- Masonry grid layout with hover effects
-- Modal overlays for project details
-- Category filtering (ML, NLP, Computer Vision, etc.)
-- Animated project cards with stagger delays
+### 5. contact.html - Contact Information
+**Content**:
+- Navigation bar
+- "Get In Touch" header
+- Contact form with:
+  - Name, email, subject fields
+  - Message textarea
+  - Inquiry type dropdown
+  - Submit button with validation
+- Contact information display
+- Social media links
+- Success/error message animations
 
-### 4. skills.html - Skills & Certifications
-**Purpose**: Technical skills visualization
-**Sections**:
-- Interactive skills radar chart
-- Proficiency levels with animated bars
-- Certification badges
-- Technical expertise categories
+## Interactive Features
 
-**Key Features**:
-- ECharts radar chart for skill visualization
-- Animated progress bars
-- Category filtering (Languages, ML, Data, etc.)
-- Hover effects for skill details
+### Navigation System
+- Smooth page transitions using Anime.js
+- Active tab highlighting with blue underline
+- Mobile-responsive hamburger menu
+- Scroll-to-top functionality
+
+### Animations & Effects
+- Scroll-triggered animations (fade-in, slide-up)
+- Hover effects on cards and buttons
+- Typewriter effect for dynamic text (Typed.js)
+- Text splitting animations (Splitting.js)
+- Loading states and micro-interactions
+
+### Responsive Design
+- Mobile-first approach
+- Collapsible sidebar for mobile
+- Touch-friendly interface elements
+- Optimized typography scaling
 
 ## Technical Implementation
 
-### Core Libraries Used
-1. **Anime.js** - Smooth animations and transitions
-2. **Typed.js** - Typewriter effects for hero text
-3. **Splitting.js** - Text animation effects
-4. **ECharts.js** - Interactive charts for skills
-5. **p5.js** - Background particle effects
+### Libraries Used
+1. **Anime.js** - Page transitions and element animations
+2. **ECharts.js** - Skills radar chart and data visualization
+3. **Typed.js** - Typewriter effects for dynamic content
+4. **Splitting.js** - Advanced text animations
+5. **p5.js** - Interactive background particles
 6. **Pixi.js** - Advanced visual effects
-7. **Splide.js** - Image carousels
+7. **Splide.js** - Project image carousels
 
-### JavaScript Functionality (main.js)
-- Scroll animations and intersection observer
-- Navigation active state management
-- Modal functionality for project details
-- Form handling and validation
-- Copy-to-clipboard for contact info
-- Mobile responsive menu toggle
+### JavaScript Modules
+- Navigation handling
+- Form validation
+- Chat interface logic
+- Animation controllers
+- Responsive behavior
+- Image lazy loading
 
 ### CSS Framework
 - Tailwind CSS for utility-first styling
-- Custom CSS for glassmorphism effects
-- Responsive design breakpoints
-- Dark theme color variables
-
-### Animation Strategy
-- Scroll-triggered animations using Intersection Observer
-- Hover effects with CSS transitions and transforms
-- Staggered animations for card grids
-- Smooth page transitions
-
-## Content Strategy
-
-### Personal Branding
-- Professional AI/ML practitioner positioning
-- Emphasis on real-world project experience
-- Technical depth with accessible explanations
-- Modern, sophisticated visual presentation
-
-### Project Showcase
-- 7 key projects covering ML, NLP, Computer Vision
-- Each project with problem statement, solution, and impact
-- Technical details with code snippets
-- Links to GitHub repositories and live demos
-
-### Skills Presentation
-- Categorized technical skills with proficiency levels
-- Visual representation using charts and progress bars
-- Certification badges and credentials
-- Continuous learning emphasis
-
-## Performance Optimization
-- Lazy loading for images and heavy content
-- Minified CSS and JavaScript
-- Optimized image formats and sizes
-- Efficient animation performance
-- Mobile-first responsive design
-
-## Accessibility Features
-- Semantic HTML structure
-- ARIA labels for interactive elements
-- Keyboard navigation support
-- High contrast color ratios
-- Screen reader compatibility
-
-This outline ensures a comprehensive, professional portfolio that effectively showcases AI/ML expertise while providing an engaging user experience with modern design patterns and smooth interactions.
+- Custom CSS for animations and effects
+- Mobile-responsive breakpoints
+- Dark mode considerations (future enhancement)
