@@ -113,7 +113,7 @@
             opacity: 0;
             transform: scale(0.95);
             pointer-events: none;
-            display: none; /* Ensure hidden elements don't take up space */
+            display: none;
         }
         .tech-tag {
             background-color: #EFF6FF;
@@ -125,6 +125,7 @@
         }
         .project-link {
             transition: all 0.3s ease;
+            cursor: pointer;
         }
         .project-link:hover {
             color: #1E3A8A;
@@ -153,20 +154,21 @@
             transform: translateY(0);
             transition: all 0.6s ease;
         }
-        .typewriter {
-            border-right: 2px solid #1E3A8A;
-            animation: blink 1s infinite;
-        }
-        @keyframes blink {
-            0%, 50% { border-color: #1E3A8A; }
-            51%, 100% { border-color: transparent; }
-        }
         .icon-hover {
             transition: all 0.3s ease;
         }
         .icon-hover:hover {
             color: #1E3A8A;
             transform: translateY(-2px);
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+        }
+        .modal-content {
+            max-height: 90vh;
         }
     </style>
 </head>
@@ -274,6 +276,7 @@
 
                 <section class="fade-in">
                     <div class="grid md:grid-cols-2 gap-8">
+                        
                         <div class="project-card card-shadow bg-white rounded-xl overflow-hidden" 
                              data-category="computer-vision">
                             <div class="splide" id="splide-1">
@@ -290,29 +293,16 @@
                             <div class="p-6">
                                 <h3 class="text-xl font-semibold text-gray-900 mb-2">Visual Search Engine</h3>
                                 <p class="text-gray-600 text-sm mb-4">Zithara.AI • Jan 2025 – Apr 2025</p>
-                                <p class="text-gray-700 mb-4">
+                                <p class="text-gray-700 mb-4 line-clamp-3">
                                     Built a 'Search-by-Image' feature for MERN-stack e-commerce app, enabling users to find 
-                                    similar jewellery from a 5,000+ SKU catalog using computer vision and deep learning.
+                                    similar jewellery from a 5,000+ SKU catalog.
                                 </p>
                                 
                                 <div class="flex flex-wrap gap-2 mb-4">
                                     <span class="tech-tag">PyTorch</span>
                                     <span class="tech-tag">ResNet50</span>
                                     <span class="tech-tag">FAISS</span>
-                                    <span class="tech-tag">Python</span>
-                                    <span class="tech-tag">Node.js</span>
                                 </div>
-                                
-                                <ul class="space-y-2 text-gray-700 mb-4">
-                                    <li class="flex items-start">
-                                        <span class="w-2 h-2 bg-blue-900 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                                        Developed PyTorch pipeline for vector embeddings
-                                    </li>
-                                    <li class="flex items-start">
-                                        <span class="w-2 h-2 bg-blue-900 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                                        Achieved &lt;200ms latency with FAISS similarity search
-                                    </li>
-                                </ul>
                                 
                                 <div class="flex space-x-4">
                                     <a href="https://github.com/Naidi47" class="project-link text-blue-900 font-medium flex items-center">
@@ -321,12 +311,10 @@
                                         </svg>
                                         GitHub
                                     </a>
-                                    <a href="https://naidi47.github.io/visual-search-engine" class="project-link text-blue-900 font-medium flex items-center">
-                                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M12 0C5.374 0 0 5.373 0 12s5.374 12 12 12 12-5.373 12-12S18.626 0 12 0zm5.568 8.16c-.169 1.858-.896 3.433-2.173 4.71C13.938 14.146 12.4 14.8 10.76 14.8c-.204 0-.41-.016-.615-.049.22-.037.425-.096.615-.177.849-.322 1.489-.849 1.92-1.58.435-.735.654-1.58.654-2.535 0-.408-.049-.812-.146-1.211.292.146.615.22.958.22.439 0 .878-.11 1.317-.329.146-.073.292-.171.439-.292-.293.073-.586.11-.879.11z"/>
-                                        </svg>
-                                        Live Demo
-                                    </a>
+                                    <button onclick="openProjectModal('visual-search')" class="project-link text-blue-900 font-medium flex items-center">
+                                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                                        View Details
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -347,29 +335,16 @@
                             <div class="p-6">
                                 <h3 class="text-xl font-semibold text-gray-900 mb-2">MLOps Pipeline</h3>
                                 <p class="text-gray-600 text-sm mb-4">Personal Project • Apr 2025 – May 2025</p>
-                                <p class="text-gray-700 mb-4">
+                                <p class="text-gray-700 mb-4 line-clamp-3">
                                     Built a scalable ML microservice covering the full lifecycle: data ingestion, feature engineering, 
-                                    training, and real-time inference via REST APIs with production-grade monitoring.
+                                    training, and real-time inference via REST APIs.
                                 </p>
                                 
                                 <div class="flex flex-wrap gap-2 mb-4">
                                     <span class="tech-tag">MLflow</span>
                                     <span class="tech-tag">Docker</span>
                                     <span class="tech-tag">FastAPI</span>
-                                    <span class="tech-tag">CI/CD</span>
-                                    <span class="tech-tag">DVC</span>
                                 </div>
-                                
-                                <ul class="space-y-2 text-gray-700 mb-4">
-                                    <li class="flex items-start">
-                                        <span class="w-2 h-2 bg-blue-900 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                                        Containerized application using Docker
-                                    </li>
-                                    <li class="flex items-start">
-                                        <span class="w-2 h-2 bg-blue-900 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                                        High-performance model serving via FastAPI
-                                    </li>
-                                </ul>
                                 
                                 <div class="flex space-x-4">
                                     <a href="https://github.com/Naidi47" class="project-link text-blue-900 font-medium flex items-center">
@@ -378,12 +353,10 @@
                                         </svg>
                                         GitHub
                                     </a>
-                                    <a href="https://naidi47.github.io/mlops-pipeline" class="project-link text-blue-900 font-medium flex items-center">
-                                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M12 0C5.374 0 0 5.373 0 12s5.374 12 12 12 12-5.373 12-12S18.626 0 12 0zm5.568 8.16c-.169 1.858-.896 3.433-2.173 4.71C13.938 14.146 12.4 14.8 10.76 14.8c-.204 0-.41-.016-.615-.049.22-.037.425-.096.615-.177.849-.322 1.489-.849 1.92-1.58.435-.735.654-1.58.654-2.535 0-.408-.049-.812-.146-1.211.292.146.615.22.958.22.439 0 .878-.11 1.317-.329.146-.073.292-.171.439-.292-.293.073-.586.11-.879.11z"/>
-                                        </svg>
-                                        Live Demo
-                                    </a>
+                                    <button onclick="openProjectModal('mlops')" class="project-link text-blue-900 font-medium flex items-center">
+                                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                                        View Details
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -404,7 +377,7 @@
                             <div class="p-6">
                                 <h3 class="text-xl font-semibold text-gray-900 mb-2">LLM-Powered RAG Assistant</h3>
                                 <p class="text-gray-600 text-sm mb-4">Personal Project • Nov 2024 – Jan 2025</p>
-                                <p class="text-gray-700 mb-4">
+                                <p class="text-gray-700 mb-4 line-clamp-3">
                                     Developed a Generative AI application using Retrieval-Augmented Generation (RAG) to query 
                                     custom knowledge bases, reducing manual information retrieval time by 40%.
                                 </p>
@@ -413,20 +386,7 @@
                                     <span class="tech-tag">LangChain</span>
                                     <span class="tech-tag">OpenAI</span>
                                     <span class="tech-tag">Pinecone</span>
-                                    <span class="tech-tag">FastAPI</span>
-                                    <span class="tech-tag">Python</span>
                                 </div>
-                                
-                                <ul class="space-y-2 text-gray-700 mb-4">
-                                    <li class="flex items-start">
-                                        <span class="w-2 h-2 bg-blue-900 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                                        95%+ factual consistency in generated responses
-                                    </li>
-                                    <li class="flex items-start">
-                                        <span class="w-2 h-2 bg-blue-900 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                                        Hybrid retrieval strategies for semantic search
-                                    </li>
-                                </ul>
                                 
                                 <div class="flex space-x-4">
                                     <a href="https://github.com/Naidi47" class="project-link text-blue-900 font-medium flex items-center">
@@ -435,12 +395,10 @@
                                         </svg>
                                         GitHub
                                     </a>
-                                    <a href="https://naidi47.github.io/llm-rag-assistant" class="project-link text-blue-900 font-medium flex items-center">
-                                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M12 0C5.374 0 0 5.373 0 12s5.374 12 12 12 12-5.373 12-12S18.626 0 12 0zm5.568 8.16c-.169 1.858-.896 3.433-2.173 4.71C13.938 14.146 12.4 14.8 10.76 14.8c-.204 0-.41-.016-.615-.049.22-.037.425-.096.615-.177.849-.322 1.489-.849 1.92-1.58.435-.735.654-1.58.654-2.535 0-.408-.049-.812-.146-1.211.292.146.615.22.958.22.439 0 .878-.11 1.317-.329.146-.073.292-.171.439-.292-.293.073-.586.11-.879.11z"/>
-                                        </svg>
-                                        Live Demo
-                                    </a>
+                                    <button onclick="openProjectModal('rag')" class="project-link text-blue-900 font-medium flex items-center">
+                                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                                        View Details
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -461,28 +419,16 @@
                             <div class="p-6">
                                 <h3 class="text-xl font-semibold text-gray-900 mb-2">BERT Semantic Search</h3>
                                 <p class="text-gray-600 text-sm mb-4">Personal Project • Aug 2024 – Oct 2024</p>
-                                <p class="text-gray-700 mb-4">
+                                <p class="text-gray-700 mb-4 line-clamp-3">
                                     Fine-tuned pre-trained BERT models for complex NLP tasks including multi-label classification 
-                                    and semantic search, achieving an F1-score of 0.89.
+                                    and semantic search.
                                 </p>
                                 
                                 <div class="flex flex-wrap gap-2 mb-4">
                                     <span class="tech-tag">BERT</span>
                                     <span class="tech-tag">Hugging Face</span>
                                     <span class="tech-tag">PyTorch</span>
-                                    <span class="tech-tag">Python</span>
                                 </div>
-                                
-                                <ul class="space-y-2 text-gray-700 mb-4">
-                                    <li class="flex items-start">
-                                        <span class="w-2 h-2 bg-blue-900 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                                        F1-score of 0.89 on multi-label classification
-                                    </li>
-                                    <li class="flex items-start">
-                                        <span class="w-2 h-2 bg-blue-900 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                                        30% reduction in inference latency via quantization
-                                    </li>
-                                </ul>
                                 
                                 <div class="flex space-x-4">
                                     <a href="https://github.com/Naidi47" class="project-link text-blue-900 font-medium flex items-center">
@@ -491,12 +437,10 @@
                                         </svg>
                                         GitHub
                                     </a>
-                                    <a href="https://naidi47.github.io/bert-semantic-search" class="project-link text-blue-900 font-medium flex items-center">
-                                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M12 0C5.374 0 0 5.373 0 12s5.374 12 12 12 12-5.373 12-12S18.626 0 12 0zm5.568 8.16c-.169 1.858-.896 3.433-2.173 4.71C13.938 14.146 12.4 14.8 10.76 14.8c-.204 0-.41-.016-.615-.049.22-.037.425-.096.615-.177.849-.322 1.489-.849 1.92-1.58.435-.735.654-1.58.654-2.535 0-.408-.049-.812-.146-1.211.292.146.615.22.958.22.439 0 .878-.11 1.317-.329.146-.073.292-.171.439-.292-.293.073-.586.11-.879.11z"/>
-                                        </svg>
-                                        Live Demo
-                                    </a>
+                                    <button onclick="openProjectModal('bert')" class="project-link text-blue-900 font-medium flex items-center">
+                                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                                        View Details
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -506,6 +450,171 @@
         </div>
     </div>
 
+    <div id="project-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center">
+        <div class="absolute inset-0 modal-overlay" onclick="closeProjectModal()"></div>
+        
+        <div class="relative bg-white rounded-2xl w-full max-w-4xl mx-4 modal-content overflow-y-auto card-shadow flex flex-col md:flex-row animate-pop">
+            <button onclick="closeProjectModal()" class="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 z-10 transition">
+                <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+
+            <div class="w-full md:w-1/2 bg-gray-50 p-6 flex flex-col justify-center">
+                <div class="splide" id="modal-splide">
+                    <div class="splide__track rounded-lg overflow-hidden shadow-sm">
+                        <ul class="splide__list" id="modal-images">
+                            </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full md:w-1/2 p-8">
+                <h3 id="modal-title" class="text-2xl font-bold text-gray-900 mb-2"></h3>
+                <p id="modal-date" class="text-sm text-gray-500 mb-6 font-medium"></p>
+                
+                <div class="mb-6">
+                    <h4 class="text-sm uppercase tracking-wider text-gray-500 font-bold mb-3">Description</h4>
+                    <p id="modal-desc" class="text-gray-700 leading-relaxed"></p>
+                </div>
+
+                <div class="mb-6">
+                    <h4 class="text-sm uppercase tracking-wider text-gray-500 font-bold mb-3">Key Highlights</h4>
+                    <ul id="modal-highlights" class="space-y-2 text-gray-700 text-sm">
+                        </ul>
+                </div>
+
+                <div class="mb-8">
+                    <h4 class="text-sm uppercase tracking-wider text-gray-500 font-bold mb-3">Technologies</h4>
+                    <div id="modal-tech" class="flex flex-wrap gap-2">
+                        </div>
+                </div>
+
+                <div class="flex gap-4">
+                    <a id="modal-github" href="#" target="_blank" class="btn-primary py-2 px-6 text-white rounded-lg flex items-center">
+                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></path></svg>
+                        GitHub Repo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="main.js"></script>
+
+    <script>
+        // Project Data Configuration
+        const projectData = {
+            'visual-search': {
+                title: "Visual Search Engine",
+                date: "Zithara.AI • Jan 2025 – Apr 2025",
+                desc: "Built a 'Search-by-Image' feature for a MERN-stack e-commerce application. This system allows users to upload an image and find visually similar jewellery items from a catalog of over 5,000 SKUs.",
+                highlights: [
+                    "Developed PyTorch pipeline for vector embeddings using ResNet50.",
+                    "Achieved <200ms latency with FAISS similarity search.",
+                    "Integrated with Node.js backend for seamless user experience."
+                ],
+                tech: ["PyTorch", "ResNet50", "FAISS", "Python", "Node.js", "MongoDB"],
+                images: ["resources/project-visual-search.png", "resources/project-visual-search.png"], // Duplicated for slider demo
+                github: "https://github.com/Naidi47"
+            },
+            'mlops': {
+                title: "MLOps Pipeline",
+                date: "Personal Project • Apr 2025 – May 2025",
+                desc: "A scalable Machine Learning microservice architecture designed for production. It handles the complete lifecycle from data ingestion to model serving with automated CI/CD workflows.",
+                highlights: [
+                    "Containerized application using Docker for consistency.",
+                    "High-performance model serving via FastAPI.",
+                    "Implemented experiment tracking with MLflow and version control with DVC."
+                ],
+                tech: ["MLflow", "Docker", "FastAPI", "CI/CD", "DVC", "Python"],
+                images: ["resources/project-mlops.png", "resources/project-mlops.png"],
+                github: "https://github.com/Naidi47"
+            },
+            'rag': {
+                title: "LLM-Powered RAG Assistant",
+                date: "Personal Project • Nov 2024 – Jan 2025",
+                desc: "An intelligent chatbot application leveraging Retrieval-Augmented Generation (RAG) to provide accurate answers based on custom knowledge bases, significantly reducing hallucination rates.",
+                highlights: [
+                    "95%+ factual consistency in generated responses.",
+                    "Hybrid retrieval strategies for semantic search using Pinecone.",
+                    "Integrated OpenAI API with LangChain for orchestration."
+                ],
+                tech: ["LangChain", "OpenAI", "Pinecone", "FastAPI", "Python", "React"],
+                images: ["resources/project-rag.png", "resources/project-rag.png"],
+                github: "https://github.com/Naidi47"
+            },
+            'bert': {
+                title: "BERT Semantic Search",
+                date: "Personal Project • Aug 2024 – Oct 2024",
+                desc: "A deep learning project focused on fine-tuning BERT models for advanced Natural Language Processing tasks. The system excels at understanding context in complex queries.",
+                highlights: [
+                    "Achieved F1-score of 0.89 on multi-label classification.",
+                    "30% reduction in inference latency via model quantization.",
+                    "Deployed model using Hugging Face Spaces."
+                ],
+                tech: ["BERT", "Hugging Face", "PyTorch", "Python", "Transformers"],
+                images: ["resources/project-bert.png", "resources/project-bert.png"],
+                github: "https://github.com/Naidi47"
+            }
+        };
+
+        let modalSplideInstance = null;
+
+        function openProjectModal(projectId) {
+            const data = projectData[projectId];
+            if (!data) return;
+
+            // Populate Text
+            document.getElementById('modal-title').textContent = data.title;
+            document.getElementById('modal-date').textContent = data.date;
+            document.getElementById('modal-desc').textContent = data.desc;
+            document.getElementById('modal-github').href = data.github;
+
+            // Populate Highlights
+            const highlightList = document.getElementById('modal-highlights');
+            highlightList.innerHTML = data.highlights.map(h => 
+                `<li class="flex items-start"><span class="w-1.5 h-1.5 bg-blue-900 rounded-full mt-2 mr-2 flex-shrink-0"></span>${h}</li>`
+            ).join('');
+
+            // Populate Tech
+            const techContainer = document.getElementById('modal-tech');
+            techContainer.innerHTML = data.tech.map(t => 
+                `<span class="bg-blue-50 text-blue-900 text-xs font-semibold px-2.5 py-0.5 rounded border border-blue-200">${t}</span>`
+            ).join('');
+
+            // Populate Images
+            const imageList = document.getElementById('modal-images');
+            imageList.innerHTML = data.images.map(img => 
+                `<li class="splide__slide"><img src="${img}" class="w-full h-64 object-cover object-center" alt="${data.title}"></li>`
+            ).join('');
+
+            // Show Modal
+            const modal = document.getElementById('project-modal');
+            modal.classList.remove('hidden');
+
+            // Initialize/Refresh Splide
+            if (modalSplideInstance) {
+                modalSplideInstance.destroy();
+            }
+            modalSplideInstance = new Splide('#modal-splide', {
+                type: 'loop',
+                perPage: 1,
+                autoplay: true,
+                interval: 3000,
+                arrows: true,
+                pagination: true,
+            }).mount();
+        }
+
+        function closeProjectModal() {
+            document.getElementById('project-modal').classList.add('hidden');
+        }
+
+        // Close on Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeProjectModal();
+            }
+        });
+    </script>
 </body>
 </html>
