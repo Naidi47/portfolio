@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muchukuntla Brahmanaidu Portfolio</title>
+
+    <link rel="icon" type="image/png" href="resources/professional-portrait2.png">
+    <link rel="apple-touch-icon" href="resources/professional-portrait2.png">
+
+    <meta property="og:title" content="Brahmanaidu | Portfolio">
+    <meta property="og:description" content="AI, ML & Data Science Portfolio of Brahmanaidu">
+    <meta property="og:image" content="resources/professional-portrait.png">
+    <meta property="og:type" content="website">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <script src="https://unpkg.com/splitting@1.0.6/dist/splitting.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/splitting@1.0.6/dist/splitting.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .bg-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .sidebar-shadow {
+            box-shadow: 4px 0 20px rgba(0, 0, 0, 0.08);
+        }
+        .card-shadow {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        .card-shadow:hover {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            transform: translateY(-2px);
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #1E3A8A;
+        }
+        .nav-link:hover {
+            color: #1E3A8A;
+        }
+        .btn-primary {
+            background-color: #1E3A8A;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #1E40AF;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s ease;
+        }
+        .typewriter {
+            border-right: 2px solid #1E3A8A;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 50% { border-color: #1E3A8A; }
+            51%, 100% { border-color: transparent; }
+        }
+        .icon-hover {
+            transition: all 0.3s ease;
+        }
+        .icon-hover:hover {
+            color: #1E3A8A;
+            transform: translateY(-2px);
+        }
+        /* Custom Scrollbar for Sidebar */
+        .sidebar-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+        .sidebar-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .sidebar-scroll::-webkit-scrollbar-thumb {
+            background: #e2e8f0;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 overflow-x-hidden">
+    <div id="particles-container" class="bg-particles"></div>
+
+    <div class="flex flex-col lg:flex-row min-h-screen">
+        
+        <div class="w-full lg:w-80 bg-white sidebar-shadow relative lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto sidebar-scroll z-30">
+            <div class="p-8 flex flex-col justify-center lg:justify-start lg:min-h-full">
+                <div class="flex-shrink-0">
+                    <div class="w-48 h-60 mx-auto mb-6 rounded-3xl overflow-hidden card-shadow">
+                        <img src="resources/professional-portrait.png" alt="Muchukuntla Brahmanaidu" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    
+                    <h1 class="text-2xl font-bold text-center text-gray-900 mb-1" data-splitting>
+                        Muchukuntla Brahmanaidu
+                    </h1>
+                    <p class="text-gray-600 text-center mb-6">
+                        <span id="typed-role"></span>
+                    </p>
+                    
+                    <button class="btn-primary w-full py-3 px-6 text-white font-medium rounded-lg mb-8"
+                            onclick="window.open('Brahmanaidu_Resume.pdf', '_blank')">
+                        View Resume
+                    </button>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="flex items-center justify-center lg:justify-start space-x-3 text-gray-600">
+                        <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                        </svg>
+                        <a href="tel:+918688084974" class="text-sm truncate hover:text-blue-900">+91 8688084974</a>
+                    </div>
+                    
+                    <div class="flex items-center justify-center lg:justify-start space-x-3 text-gray-600">
+                        <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                        </svg>
+                        <a href="mailto:bramanaidu2172@gmail.com" class="text-sm truncate hover:text-blue-900">bramanaidu2172@gmail.com</a>
+                    </div>
+                    <div class="flex items-center justify-center lg:justify-start space-x-3 text-gray-600">
+                        <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5.05 3.05a7 7 0 119.9 9.9L10 18l-4.95-5.05a7 7 0 010-9.9zM10 9a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="text-sm">Bangalore, India</span>
+                    </div>
+
+                    <div class="flex items-center justify-center lg:justify-start space-x-3 text-gray-600">
+                        <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="text-sm">May 6, 2004</span>
+                    </div>
+
+                    <div class="flex justify-center lg:justify-start space-x-4 pt-4">
+                        <a href="https://www.linkedin.com/in/brahmanaidu-m-17a1a9242/" target="_blank" class="icon-hover text-gray-600">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="https://github.com/Naidi47" target="_blank" class="icon-hover text-gray-600">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        </a>
+                        <a href="https://reddit.com/u/Sea-Television-3780" target="_blank" class="icon-hover text-gray-600">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.056 1.597.04.282.063.559.063.847 0 2.842-3.067 5.148-6.85 5.148-3.782 0-6.85-2.306-6.85-5.148 0-.285.024-.556.062-.834a1.754 1.754 0 0 1-1.047-1.597c0-.968.786-1.754 1.754-1.754.463 0 .875.18 1.183.469 1.192-.843 2.83-1.4 4.634-1.484l.848-3.955 3.005.632c.005-.004.01-.008.016-.012.08-.035.168-.056.262-.056zM9.223 12.186c-.662 0-1.208.541-1.208 1.202 0 .66.546 1.202 1.208 1.202.66 0 1.203-.541 1.203-1.202 0-.66-.543-1.202-1.203-1.202zm5.554 0c-.662 0-1.203.541-1.203 1.202 0 .66.541 1.202 1.203 1.202.661 0 1.203-.541 1.203-1.202 0-.66-.542-1.202-1.203-1.202zm-5.518 3.51a.34.34 0 0 0-.017.679c.634.332 1.52.52 2.758.52.1.001.2 0 .3-.001a11.13 11.13 0 0 0 .3.001c1.238 0 2.124-.188 2.758-.52a.34.34 0 1 0-.34-.588c-.513.269-1.238.43-2.418.43-.1 0-.199.001-.299.001-.1 0-.2 0-.3-.001-1.18 0-1.905-.161-2.418-.43a.34.34 0 0 0-.124-.047z"/></svg>
+                        </a>
+                        <a href="https://wa.me/918688084974" target="_blank" class="icon-hover text-gray-600">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex-1">
+            <nav class="bg-white/80 backdrop-blur-sm border-b border-gray-100 sticky top-0 z-20">
+                <div class="px-6 py-4 flex justify-center lg:justify-end">
+                    <div class="flex flex-wrap justify-center gap-4 lg:gap-0 lg:space-x-8">
+                        <a href="index.html" class="nav-link active text-gray-900 font-medium">About</a>
+                        <a href="projects.html" class="nav-link text-gray-600 font-medium">Projects</a>
+                        <a href="skills.html" class="nav-link text-gray-600 font-medium">Skills</a>
+                        <a href="ai-assistant.html" class="nav-link text-gray-600 font-medium">AI Assistant</a>
+                        <a href="contact.html" class="nav-link text-gray-600 font-medium">Contact</a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="px-6 md:px-8 py-12 max-w-6xl">
+                <section class="fade-in mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                        About Me
+                        <span class="block w-16 h-1 bg-blue-900 mt-2"></span>
+                    </h2>
+                    <div class="card-shadow bg-white rounded-xl p-6 md:p-8">
+                        <p class="text-base md:text-lg text-gray-700 leading-relaxed mb-6">
+                            Data scientist / AI & ML practitioner with strong foundations in Python, pandas, scikit-learn, and statistics. 
+                            Focused on building real-world projects in Machine Learning, Deep Learning, NLP, and Computer Vision.
+                        </p>
+                        <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+                            Graduated in Computer Science with expertise in statistical modeling, machine learning, and big data analytics.
+                             Currently focused on mastering the mathematical foundations of AI and applying advanced tools to build scalable solutions.
+                        </p>
+                    </div>
+                </section>
+
+                <section class="fade-in">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+                        Experience & Education
+                        <span class="block w-16 h-1 bg-blue-900 mt-2"></span>
+                    </h2>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="card-shadow bg-white rounded-xl p-6 md:p-8">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-blue-900" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                </div>
+                                <h3 class="text-xl font-semibold text-gray-900">Experience</h3>
+                            </div>
+                            
+                            <h4 class="text-lg font-medium text-gray-900 mb-2">Machine Learning Engineer Intern</h4>
+                            <p class="text-blue-900 font-medium mb-3">Zithara.AI (Propel5000)</p>
+                            <p class="text-gray-600 text-sm mb-4">Jan 2025 – Apr 2025</p>
+                            
+                            <ul class="space-y-2 text-gray-700 text-sm md:text-base">
+                                <li class="flex items-start">
+                                    <span class="w-2 h-2 bg-blue-900 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                    Built 'Search-by-Image' feature for e-commerce platform
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="w-2 h-2 bg-blue-900 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                    Developed PyTorch (ResNet50) pipeline for vector embeddings
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="w-2 h-2 bg-blue-900 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                    Implemented FAISS for similarity search (<200ms latency)
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="card-shadow bg-white rounded-xl p-6 md:p-8">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-blue-900" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/>
+                                    </svg>
+                                </div>
+                                <h3 class="text-xl font-semibold text-gray-900">Education</h3>
+                            </div>
+                            
+                            <h4 class="text-lg font-medium text-gray-900 mb-2">Bachelor of Technology in CS</h4>
+                            <p class="text-blue-900 font-medium mb-3">Annamacharya Institute of Technology and Sciences</p>
+                            <p class="text-gray-600 text-sm mb-4">CGPA: 7.9 / 10</p>
+                            
+                            <ul class="space-y-2 text-gray-700 text-sm md:text-base">
+                                <li class="flex items-start">
+                                    <span class="w-2 h-2 bg-blue-900 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                    Expertise in Statistical Modeling
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="w-2 h-2 bg-blue-900 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                    Machine Learning & Deep Learning
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="w-2 h-2 bg-blue-900 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                    Big Data Analytics
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="fade-in mt-16">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                        <div class="card-shadow bg-white rounded-xl p-6 text-center">
+                            <div class="text-3xl font-bold text-blue-900 mb-2">4+</div>
+                            <div class-="text-gray-600 textsm">ML Projects</div>
+                        </div>
+                        <div class="card-shadow bg-white rounded-xl p-6 text-center">
+                            <div class="text-3xl font-bold text-blue-900 mb-2">3</div>
+                            <div class="text-gray-600 text-sm">Certifications</div>
+                        </div>
+                        <div class="card-shadow bg-white rounded-xl p-6 text-center">
+                            <div class="text-3xl font-bold text-blue-900 mb-2">4</div>
+                            <div class="text-gray-600 text-sm">Months Experience</div>
+                        </div>
+                        <div class="card-shadow bg-white rounded-xl p-6 text-center">
+                            <div class="text-3xl font-bold text-blue-900 mb-2">10+</div>
+                            <div class="text-gray-600 text-sm">Technologies</div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
