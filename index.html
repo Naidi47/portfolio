@@ -48,10 +48,12 @@
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
             transform: translateY(-2px);
         }
+        
         .nav-link {
             position: relative;
             transition: color 0.3s ease;
         }
+        
         .nav-link.active::after {
             content: '';
             position: absolute;
@@ -174,6 +176,23 @@
         .pb-safe {
             padding-bottom: env(safe-area-inset-bottom);
         }
+
+        /* Shining Effect Animation for Underlines */
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        
+        .shining-underline {
+            display: block;
+            height: 4px;
+            width: 100%;
+            margin-top: 0.5rem;
+            border-radius: 9999px;
+            background: linear-gradient(90deg, #1E3A8A 0%, #60A5FA 50%, #1E3A8A 100%);
+            background-size: 200% auto;
+            animation: shimmer 3s linear infinite;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 overflow-x-hidden">
@@ -209,8 +228,9 @@
                     <h1 class="text-2xl font-bold text-center text-gray-900 mb-1" data-splitting>
                         Muchukuntla Brahmanaidu
                     </h1>
-                    <p class="text-gray-600 text-center mb-6 mono text-sm">
-                        AIML Engineer
+                    
+                    <p class="text-gray-600 text-center mb-6 mono text-sm h-6">
+                        <span id="sidebar-role"></span>
                     </p>
                     
                     <button class="btn-primary w-full py-3 px-6 text-white font-medium rounded-lg mb-8"
@@ -288,7 +308,9 @@
                             Muchukuntla<br>Brahmanaidu
                         </h1>
                         <div class="inline-block px-3 py-1 bg-blue-50 rounded-full border border-blue-100">
-                            <span class="text-xs text-blue-900 font-medium mono">AIML Engineer</span>
+                            <span class="text-xs text-blue-900 font-medium mono">
+                                <span id="mobile-role"></span>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -339,19 +361,18 @@
                 
                 <section class="lg:hidden mobile-card mb-6">
                     <div class="card-shadow bg-white rounded-2xl p-6">
-                        <h2 class="text-2xl font-bold text-gray-900 mb-2">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-2 inline-block">
                             About Me
-                            <span class="block w-12 h-1 bg-blue-900 mt-2 rounded-full"></span>
+                            <span class="shining-underline"></span>
                         </h2>
                         <div class="mt-4 space-y-4">
-                            <p class="text-sm text-gray-600 leading-relaxed text-justify">
-                                Data scientist / AI & ML practitioner with strong foundations in Python, pandas, scikit-learn, and statistics. 
-                                Focused on building real-world projects in Machine Learning, Deep Learning, NLP, and Computer Vision.
-                            </p>
-                            <p class="text-sm text-gray-600 leading-relaxed text-justify">
-                                Graduated in Computer Science with expertise in statistical modeling, machine learning, and big data analytics.
-                                Currently focused on mastering the mathematical foundations of AI and applying advanced tools to build scalable solutions.
-                            </p>
+                            <span id="mobile-bio-output" class="text-sm text-gray-600 leading-relaxed text-justify"></span>
+                            
+                            <div id="mobile-bio-source" style="display:none;">
+                                <p>Data scientist / AI & ML practitioner with strong foundations in Python, pandas, scikit-learn, and statistics. Focused on building real-world projects in Machine Learning, Deep Learning, NLP, and Computer Vision.</p>
+                                <p>Graduated in Computer Science with expertise in statistical modeling, machine learning, and big data analytics. Currently focused on mastering the mathematical foundations of AI and applying advanced tools to build scalable solutions.</p>
+                            </div>
+
                             <button class="w-full mt-2 py-3.5 px-6 bg-white border-2 border-gray-800 text-gray-900 font-semibold rounded-xl hover:bg-gray-900 hover:text-white transition-all duration-300 active:scale-95"
                                     onclick="window.open('Brahmanaidu_Resume.pdf', '_blank')">
                                 View Resume
@@ -361,19 +382,17 @@
                 </section>
 
                 <section class="hidden lg:block fade-in mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 inline-block">
                         About Me
-                        <span class="block w-16 h-1 bg-blue-900 mt-2"></span>
+                        <span class="shining-underline"></span>
                     </h2>
                     <div class="card-shadow bg-white rounded-xl p-6 md:p-8">
-                        <p class="text-base md:text-lg text-gray-700 leading-relaxed mb-6">
-                            Data scientist / AI & ML practitioner with strong foundations in Python, pandas, scikit-learn, and statistics. 
-                            Focused on building real-world projects in Machine Learning, Deep Learning, NLP, and Computer Vision.
-                        </p>
-                        <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-                            Graduated in Computer Science with expertise in statistical modeling, machine learning, and big data analytics.
-                             Currently focused on mastering the mathematical foundations of AI and applying advanced tools to build scalable solutions.
-                        </p>
+                        <span id="desktop-bio-output" class="text-base md:text-lg text-gray-700 leading-relaxed"></span>
+
+                        <div id="desktop-bio-source" style="display:none;">
+                            <p class="mb-6">Data scientist / AI & ML practitioner with strong foundations in Python, pandas, scikit-learn, and statistics. Focused on building real-world projects in Machine Learning, Deep Learning, NLP, and Computer Vision.</p>
+                            <p>Graduated in Computer Science with expertise in statistical modeling, machine learning, and big data analytics. Currently focused on mastering the mathematical foundations of AI and applying advanced tools to build scalable solutions.</p>
+                        </div>
                     </div>
                 </section>
 
@@ -570,6 +589,50 @@
 
     <script src="main.js"></script>
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Bio Typing (Speed: 5 - Fast)
+            if(document.getElementById('desktop-bio-output')) {
+                new Typed('#desktop-bio-output', {
+                    stringsElement: '#desktop-bio-source',
+                    typeSpeed: 5,
+                    backSpeed: 0,
+                    showCursor: true,
+                    cursorChar: '|',
+                    loop: false
+                });
+            }
+
+            if(document.getElementById('mobile-bio-output')) {
+                new Typed('#mobile-bio-output', {
+                    stringsElement: '#mobile-bio-source',
+                    typeSpeed: 5,
+                    backSpeed: 0,
+                    showCursor: true,
+                    cursorChar: '|',
+                    loop: false
+                });
+            }
+
+            // NEW: Role Typing Animation (Cycling)
+            // Roaming: Data Scientist -> AI/ML Developer -> ML Practitioner
+            const roleOptions = {
+                strings: ['Data Scientist', 'AI/ML Developer', 'ML Practitioner'],
+                typeSpeed: 50,
+                backSpeed: 30,
+                backDelay: 1500,
+                loop: true,
+                showCursor: true,
+                cursorChar: '|',
+            };
+
+            if(document.getElementById('sidebar-role')) {
+                new Typed('#sidebar-role', roleOptions);
+            }
+            if(document.getElementById('mobile-role')) {
+                new Typed('#mobile-role', roleOptions);
+            }
+        });
+
         // Toggle mobile contact details
         function toggleMobileContact() {
             const details = document.getElementById('mobile-contact-details');
