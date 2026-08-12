@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+<title id="title">Production RAG</title><desc id="desc">Hybrid retrieval, reranking, grounded generation and citations</desc>
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1020"/><stop offset="1" stop-color="#171629"/></linearGradient>
+ <linearGradient id="blue" x1="0" x2="1"><stop stop-color="#39a9ff"/><stop offset="1" stop-color="#7c6cff"/></linearGradient>
+ <filter id="glow"><feGaussianBlur stdDeviation="10" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#fff" stroke-opacity=".055"/></pattern>
+</defs>
+<rect width="1200" height="680" rx="28" fill="url(#bg)"/><rect width="1200" height="680" rx="28" fill="url(#grid)"/>
+<circle cx="1040" cy="80" r="190" fill="#4da3ff" opacity=".07"/><circle cx="170" cy="610" r="180" fill="#8a7dff" opacity=".07"/>
+<text x="58" y="62" fill="#55a9ff" font-family="monospace" font-size="20" letter-spacing="4">PRODUCTION RAG</text>
+
+<g font-family="Arial,sans-serif">
+ <g fill="#151b2a" stroke="#2b3955"><rect x="50" y="130" width="180" height="220" rx="18"/><rect x="275" y="130" width="180" height="220" rx="18"/><rect x="500" y="130" width="180" height="220" rx="18"/><rect x="725" y="130" width="180" height="220" rx="18"/><rect x="950" y="130" width="190" height="220" rx="18"/></g>
+ <g fill="#f5f7fb" font-size="22" text-anchor="middle"><text x="140" y="174">Documents</text><text x="365" y="174">Chunk + Embed</text><text x="590" y="174">pgvector</text><text x="815" y="174">Reranker</text><text x="1045" y="174">LLM + Sources</text></g>
+ <g fill="#8e9ab0" font-size="15" text-anchor="middle"><text x="140" y="207">PDF • DOCX • TXT</text><text x="365" y="207">contextual chunks</text><text x="590" y="207">semantic + keyword</text><text x="815" y="207">cross-encoder</text><text x="1045" y="207">grounded answer</text></g>
+ <g stroke="url(#blue)" stroke-width="6" fill="none" filter="url(#glow)"><path d="M230 240H270"/><path d="M455 240H495"/><path d="M680 240H720"/><path d="M905 240H945"/></g>
+ <g fill="#55a9ff"><circle cx="250" cy="240" r="7"/><circle cx="475" cy="240" r="7"/><circle cx="700" cy="240" r="7"/><circle cx="925" cy="240" r="7"/></g>
+ <rect x="180" y="415" width="840" height="120" rx="20" fill="#101827" stroke="#2b3955"/>
+ <text x="600" y="458" fill="#55a9ff" font-size="17" text-anchor="middle" font-family="monospace">EVALUATION + CITATIONS</text>
+ <text x="600" y="495" fill="#b8c1d2" font-size="19" text-anchor="middle">retrieval quality → grounded response → source traceability</text>
+</g>
+</svg>

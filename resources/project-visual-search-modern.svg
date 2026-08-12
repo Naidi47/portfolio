@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+<title id="title">Visual Search Engine</title><desc id="desc">CLIP embeddings, HNSW retrieval and low-latency catalog search</desc>
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1020"/><stop offset="1" stop-color="#171629"/></linearGradient>
+ <linearGradient id="blue" x1="0" x2="1"><stop stop-color="#39a9ff"/><stop offset="1" stop-color="#7c6cff"/></linearGradient>
+ <filter id="glow"><feGaussianBlur stdDeviation="10" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#fff" stroke-opacity=".055"/></pattern>
+</defs>
+<rect width="1200" height="680" rx="28" fill="url(#bg)"/><rect width="1200" height="680" rx="28" fill="url(#grid)"/>
+<circle cx="1040" cy="80" r="190" fill="#4da3ff" opacity=".07"/><circle cx="170" cy="610" r="180" fill="#8a7dff" opacity=".07"/>
+<text x="58" y="62" fill="#55a9ff" font-family="monospace" font-size="20" letter-spacing="4">VISUAL SEARCH ENGINE</text>
+
+<g font-family="Arial,sans-serif">
+ <g fill="#151b2a" stroke="#2b3955"><rect x="55" y="150" width="220" height="190" rx="20"/><rect x="335" y="150" width="220" height="190" rx="20"/><rect x="615" y="150" width="220" height="190" rx="20"/><rect x="895" y="150" width="250" height="190" rx="20"/></g>
+ <text x="165" y="190" fill="#f5f7fb" font-size="22" text-anchor="middle">Query Image</text><rect x="115" y="220" width="100" height="75" rx="10" fill="#26364c" stroke="#55a9ff"/><path d="M128 280l28-32 20 20 15-13 25 25" fill="none" stroke="#8a7dff" stroke-width="5"/>
+ <text x="445" y="190" fill="#f5f7fb" font-size="22" text-anchor="middle">CLIP Encoder</text><text x="445" y="228" fill="#8e9ab0" font-size="15" text-anchor="middle">512-d vector</text><g fill="#55a9ff"><circle cx="385" cy="270" r="8"/><circle cx="415" cy="255" r="8"/><circle cx="445" cy="282" r="8"/><circle cx="475" cy="260" r="8"/><circle cx="505" cy="276" r="8"/></g>
+ <text x="725" y="190" fill="#f5f7fb" font-size="22" text-anchor="middle">HNSW Index</text><g stroke="#55a9ff" stroke-width="3" fill="#18253a"><circle cx="680" cy="270" r="14"/><circle cx="725" cy="240" r="14"/><circle cx="770" cy="285" r="14"/><circle cx="750" cy="325" r="14"/><circle cx="700" cy="325" r="14"/><path d="M692 263l25-16m17 5l24 25m-31 10l-20 22m28-7l15 8m-68-3l-5-22" fill="none"/></g>
+ <text x="1020" y="190" fill="#f5f7fb" font-size="22" text-anchor="middle">Top-K Results</text><g fill="#26364c"><rect x="930" y="220" width="70" height="70" rx="8"/><rect x="1010" y="220" width="70" height="70" rx="8"/><rect x="930" y="300" width="70" height="25" rx="7"/><rect x="1010" y="300" width="70" height="25" rx="7"/></g>
+ <g stroke="url(#blue)" stroke-width="6" fill="none" filter="url(#glow)"><path d="M275 245H330"/><path d="M555 245H610"/><path d="M835 245H890"/></g>
+ <rect x="230" y="420" width="740" height="100" rx="20" fill="#101827" stroke="#2b3955"/><text x="600" y="458" fill="#55a9ff" font-size="17" text-anchor="middle" font-family="monospace">ASYNC FASTAPI + MONGODB ATLAS</text><text x="600" y="493" fill="#b8c1d2" font-size="19" text-anchor="middle">HNSW + cosine similarity → sub-100ms retrieval</text>
+</g>
+</svg>

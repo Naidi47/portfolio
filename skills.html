@@ -1,612 +1,2044 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-theme="dark">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skills - Muchukuntla Brahmanaidu</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
-    <script src="https://unpkg.com/splitting@1.0.6/dist/splitting.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/splitting@1.0.6/dist/splitting.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    
-    <style>
-        * {
-            font-family: 'Inter', sans-serif;
-        }
-        .mono {
-            font-family: 'JetBrains Mono', monospace;
-        }
-        .bg-particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-        
-        /* Sidebar Styles */
-        .sidebar-shadow {
-            box-shadow: 4px 0 20px rgba(0, 0, 0, 0.08);
-        }
-        .sidebar-scroll::-webkit-scrollbar {
-            width: 4px;
-        }
-        .sidebar-scroll::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        .sidebar-scroll::-webkit-scrollbar-thumb {
-            background: #e2e8f0;
-            border-radius: 10px;
-        }
+  <meta charset="utf-8">
+<meta name="theme-color" content="#09090d">
+<meta name="color-scheme" content="dark light">
+  <meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-        /* Card & UI Styles */
-        .card-shadow {
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-        }
-        .card-shadow:hover {
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-            transform: translateY(-2px);
-        }
-        
-        /* Navigation */
-        .nav-link {
-            position: relative;
-            transition: color 0.3s ease;
-        }
-        .nav-link.active::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background-color: #1E3A8A;
-        }
-        .nav-link:hover {
-            color: #1E3A8A;
-        }
-        
-        /* Buttons */
-        .btn-primary {
-            background-color: #1E3A8A;
-            transition: all 0.3s ease;
-        }
-        .btn-primary:hover {
-            background-color: #1E40AF;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
-        }
+  <title>Skills — Muchukuntla Brahmanaidu</title>
 
-        /* Skills Page Specifics */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-            transition: all 0.6s ease;
-        }
-        .skill-category {
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        .skill-category:hover {
-            transform: translateY(-2px);
-        }
-        .skill-category.active {
-            border-color: #1E3A8A;
-            background-color: #EFF6FF;
-        }
-        .skill-bar {
-            height: 8px;
-            background-color: #E5E7EB;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-        .skill-progress {
-            height: 100%;
-            background-color: #1E3A8A;
-            border-radius: 4px;
-            transition: width 1s ease;
-        }
-        .certification-badge {
-            transition: all 0.3s ease;
-        }
-        .certification-badge:hover {
-            transform: scale(1.05);
-        }
-        .icon-hover {
-            transition: all 0.3s ease;
-        }
-        .icon-hover:hover {
-            color: #1E3A8A;
-            transform: translateY(-2px);
-        }
-        /* New Tech Icon Style */
-        .tech-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 12px;
-            transition: all 0.3s ease;
-        }
-        .skill-category:hover .tech-icon {
-            transform: scale(1.1);
-        }
-    </style>
+  <meta
+    name="description"
+    content="Technical skills and tools used by Muchukuntla Brahmanaidu across machine learning, generative AI, backend engineering, cloud and data systems."
+  >
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Skills — Muchukuntla Brahmanaidu">
+  <meta
+    property="og:description"
+    content="Technical skills and engineering stack of Muchukuntla Brahmanaidu."
+  >
+  <meta
+    property="og:image"
+    content="resources/professional-portrait.png"
+  >
+
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="resources/professional-favicon.png">
+  <link rel="apple-touch-icon" href="resources/professional-favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="main.css">
+
+  <style>
+    /* =========================================================
+       SKILLS
+       ========================================================= */
+
+    .skills-page {
+      width: 100%;
+    }
+
+    .skills-heading {
+      margin-bottom: 70px;
+    }
+
+    /*
+      FLEX is intentionally used instead of CSS grid.
+
+      This keeps every row centered, including incomplete rows.
+      Example:
+      5 cards = centered
+      8 cards = 5 + centered 3
+      7 cards = 5 + centered 2
+      6 cards = 5 + centered 1
+    */
+
+    .skill-icon-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 16px;
+
+      width: min(100%, 920px);
+      margin: 0 auto;
+    }
+
+    .skill-icon-card {
+      flex: 0 1 162px;
+      width: 162px;
+      min-height: 154px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      padding: 18px 12px;
+
+      box-sizing: border-box;
+
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 17px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.035),
+          rgba(255,255,255,.015)
+        );
+
+      transition:
+        transform .25s ease,
+        border-color .25s ease,
+        background .25s ease,
+        box-shadow .25s ease;
+    }
+
+    .skill-icon-card:hover {
+      transform: translateY(-5px);
+
+      border-color: rgba(65,157,255,.42);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(45,135,230,.09),
+          rgba(255,255,255,.025)
+        );
+
+      box-shadow:
+        0 15px 35px rgba(0,0,0,.18),
+        0 0 22px rgba(40,145,255,.08);
+    }
+
+    .skill-icon {
+      width: 76px;
+      height: 76px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin-bottom: 12px;
+
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 17px;
+
+      background: rgba(0,0,0,.10);
+    }
+
+    .skill-icon svg {
+      width: 43px;
+      height: 43px;
+      display: block;
+    }
+
+    .skill-icon-card strong {
+      display: block;
+
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.25;
+      text-align: center;
+
+      color: var(--text);
+    }
+
+    .skill-icon-card small {
+      display: block;
+
+      margin-top: 6px;
+
+      font-family: "JetBrains Mono", monospace;
+      font-size: 8px;
+      line-height: 1.2;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      text-align: center;
+
+      color: rgba(255,255,255,.40);
+    }
+
+    .skill-category {
+      width: 100%;
+      margin-bottom: 82px;
+    }
+
+    .skill-category-title {
+      position: relative;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      gap: 14px;
+
+      margin-bottom: 28px;
+
+      text-align: center;
+    }
+
+    .skill-category-title span {
+      position: static;
+
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10px;
+      letter-spacing: .12em;
+
+      color: var(--accent);
+    }
+
+    .skill-category-title h3 {
+      margin: 0;
+
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(24px, 3vw, 30px);
+      line-height: 1.2;
+
+      color: #fff;
+    }
+
+    /* =========================================================
+       CERTIFICATIONS / RESEARCH
+       ========================================================= */
+
+    .certgrid,
+    .research {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .mini {
+      padding: 22px;
+
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 15px;
+
+      background: rgba(255,255,255,.025);
+    }
+
+    .mini span {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 9px;
+      letter-spacing: .08em;
+      color: var(--accent);
+    }
+
+    .mini h3 {
+      margin: 10px 0 0;
+
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 17px;
+      line-height: 1.35;
+
+      color: rgba(255,255,255,.88);
+    }
+
+    /* =========================================================
+       TABLET
+       ========================================================= */
+
+    @media (max-width: 1000px) {
+
+      .skill-icon-grid {
+        width: min(100%, 720px);
+      }
+
+      .skill-icon-card {
+        flex-basis: 150px;
+        width: 150px;
+      }
+
+    }
+
+    /* =========================================================
+       MOBILE
+       ========================================================= */
+
+    @media (max-width: 700px) {
+
+      .skills-heading {
+        margin-bottom: 50px;
+      }
+
+      .skill-category {
+        margin-bottom: 60px;
+      }
+
+      .skill-category-title {
+        margin-bottom: 22px;
+      }
+
+      .skill-category-title h3 {
+        font-size: 23px;
+      }
+
+      .skill-icon-grid {
+        width: min(100%, 440px);
+        gap: 12px;
+      }
+
+      .skill-icon-card {
+        flex: 0 1 132px;
+        width: 132px;
+        min-height: 142px;
+        padding: 15px 10px;
+      }
+
+      .skill-icon {
+        width: 65px;
+        height: 65px;
+        margin-bottom: 10px;
+        border-radius: 15px;
+      }
+
+      .skill-icon svg {
+        width: 37px;
+        height: 37px;
+      }
+
+      .skill-icon-card strong {
+        font-size: 12px;
+      }
+
+      .skill-icon-card small {
+        font-size: 7px;
+      }
+
+      .certgrid,
+      .research {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+    /* =========================================================
+       SMALL MOBILE
+       ========================================================= */
+
+    @media (max-width: 420px) {
+
+      .skill-icon-grid {
+        width: 100%;
+        gap: 10px;
+      }
+
+      .skill-icon-card {
+        flex: 0 1 calc(50% - 5px);
+        width: calc(50% - 5px);
+        min-height: 136px;
+      }
+
+      .skill-category-title {
+        gap: 10px;
+      }
+
+      .skill-category-title span {
+        font-size: 8px;
+      }
+
+      .skill-category-title h3 {
+        font-size: 21px;
+      }
+
+    }
+
+    /* =========================================================
+       REDUCED MOTION
+       ========================================================= */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .skill-icon-card {
+        transition: none !important;
+      }
+
+    }
+  </style>
 </head>
-<body class="bg-white text-gray-900 overflow-x-hidden">
-    <div id="particles-container" class="bg-particles"></div>
 
-    <div class="flex min-h-screen">
-        <div class="w-80 bg-white sidebar-shadow sticky top-0 h-screen overflow-y-auto sidebar-scroll z-10 hidden lg:block">
-            <div class="p-8">
-                <div class="mb-8">
-                    <div class="w-48 h-60 mx-auto mb-6 rounded-3xl overflow-hidden card-shadow">
-                        <img src="resources/professional-portrait.png" alt="Muchukuntla Brahmanaidu" 
-                             class="w-full h-full object-cover">
-                    </div>
-                    
-                    <h1 class="text-2xl font-bold text-center text-gray-900 mb-1" data-splitting>
-                        Muchukuntla Brahmanaidu
-                    </h1>
-                    <p class="text-gray-600 text-center mb-6">
-                        <span id="typed-role"></span>
-                    </p>
-                    
-                    <button class="btn-primary w-full py-3 px-6 text-white font-medium rounded-lg"
-                            onclick="window.open('Brahmanaidu_Resume.pdf', '_blank')">
-                        View Resume
-                    </button>
-                </div>
 
-                <div class="space-y-4">
-                    <div class="flex items-center space-x-3 text-gray-600">
-                        <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
-                        </svg>
-                        <a href="tel:+918688084974" class="text-sm truncate hover:text-blue-900">+91 8688084974</a>
-                    </div>
-                    
-                    <div class="flex items-start space-x-3 text-gray-600">
-                        <svg class="w-5 h-5 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
-                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
-                        </svg>
-                        <a href="mailto:bramanaidu2172@gmail.com" class="text-sm break-all hover:text-blue-900">bramanaidu2172@gmail.com</a>
-                    </div>
-                    <div class="flex items-center space-x-3 text-gray-600">
-                        <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M5.05 3.05a7 7 0 119.9 9.9L10 18l-4.95-5.05a7 7 0 010-9.9zM10 9a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
-                        </svg>
-                        <span class="text-sm">Bangalore, India</span>
-                    </div>
+<body>
 
-                    <div class="flex items-center space-x-3 text-gray-600">
-                        <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
-                        </svg>
-                        <span class="text-sm">May 6, 2004</span>
-                    </div>
+  <div class="progress"></div>
 
-                    <div class="flex space-x-4 pt-4">
-                        <a href="https://www.linkedin.com/in/brahmanaidu-m-17a1a9242/" target="_blank" class="icon-hover text-gray-600">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                        </a>
-                        <a href="https://github.com/Naidi47" target="_blank" class="icon-hover text-gray-600">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                        </a>
-                        <a href="https://reddit.com/u/Sea-Television-3780" target="_blank" class="icon-hover text-gray-600">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.056 1.597.04.282.063.559.063.847 0 2.842-3.067 5.148-6.85 5.148-3.782 0-6.85-2.306-6.85-5.148 0-.285.024-.556.062-.834a1.754 1.754 0 0 1-1.047-1.597c0-.968.786-1.754 1.754-1.754.463 0 .875.18 1.183.469 1.192-.843 2.83-1.4 4.634-1.484l.848-3.955 3.005.632c.005-.004.01-.008.016-.012.08-.035.168-.056.262-.056zM9.223 12.186c-.662 0-1.208.541-1.208 1.202 0 .66.546 1.202 1.208 1.202.66 0 1.203-.541 1.203-1.202 0-.66-.543-1.202-1.203-1.202zm5.554 0c-.662 0-1.203.541-1.203 1.202 0 .66.541 1.202 1.203 1.202.661 0 1.203-.541 1.203-1.202 0-.66-.542-1.202-1.203-1.202zm-5.518 3.51a.34.34 0 0 0-.017.679c.634.332 1.52.52 2.758.52.1.001.2 0 .3-.001a11.13 11.13 0 0 0 .3.001c1.238 0 2.124-.188 2.758-.52a.34.34 0 1 0-.34-.588c-.513.269-1.238.43-2.418.43-.1 0-.199.001-.299.001-.1 0-.2 0-.3-.001-1.18 0-1.905-.161-2.418-.43a.34.34 0 0 0-.124-.047z"/></svg>
-                        </a>
-                        <a href="https://wa.me/918688084974" target="_blank" class="icon-hover text-gray-600">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
+
+  <!-- =========================================================
+       SVG ICON DEFINITIONS
+       ========================================================= -->
+
+  <svg
+    width="0"
+    height="0"
+    style="position:absolute;overflow:hidden"
+    aria-hidden="true"
+  >
+    <defs>
+
+      <!-- ================= PROGRAMMING ================= -->
+
+      <symbol id="i-python" viewBox="0 0 64 64">
+        <path
+          fill="#3776AB"
+          d="M32 6c-14 0-13 6-13 6v9h14v3H13S6 23 6 38s7 15 7 15h8v-9s0-8 8-8h14s7 0 7-7V13S50 6 32 6Z"
+        />
+        <circle cx="25" cy="14" r="2.5" fill="#FFD43B"/>
+        <path
+          fill="#FFD43B"
+          d="M32 58c14 0 13-6 13-6v-9H31v-3h20s7 1 7-14-7-15-7-15h-8v9s0 8-8 8H21s-7 0-7 7v16s0 7 18 7Z"
+        />
+        <circle cx="39" cy="50" r="2.5" fill="#3776AB"/>
+      </symbol>
+
+
+      <symbol id="i-sql" viewBox="0 0 64 64">
+        <ellipse cx="30" cy="13" rx="20" ry="7" fill="#08A6D9"/>
+        <path
+          fill="#08A6D9"
+          d="M10 13v25c0 4 9 7 20 7s20-3 20-7V13c0 4-9 7-20 7s-20-3-20-7Z"
+        />
+        <text
+          x="30"
+          y="36"
+          text-anchor="middle"
+          font-family="Arial,sans-serif"
+          font-size="15"
+          font-weight="700"
+          fill="#062b43"
+        >
+          SQL
+        </text>
+        <path
+          d="M46 45c8 0 13 4 13 8s-5 7-13 7H30c-5 0-9-3-9-7s4-7 9-7h16Z"
+          fill="none"
+          stroke="#08A6D9"
+          stroke-width="3"
+        />
+      </symbol>
+
+
+      <symbol id="i-js" viewBox="0 0 64 64">
+        <rect
+          x="7"
+          y="7"
+          width="50"
+          height="50"
+          rx="5"
+          fill="#F7DF1E"
+        />
+        <text
+          x="32"
+          y="47"
+          text-anchor="middle"
+          font-family="Arial,sans-serif"
+          font-size="27"
+          font-weight="800"
+          fill="#111"
+        >
+          JS
+        </text>
+      </symbol>
+
+
+      <symbol id="i-cpp" viewBox="0 0 64 64">
+        <rect
+          x="6"
+          y="10"
+          width="52"
+          height="44"
+          rx="10"
+          fill="#1d6fb8"
+        />
+        <text
+          x="32"
+          y="41"
+          text-anchor="middle"
+          font-family="Arial,sans-serif"
+          font-size="20"
+          font-weight="800"
+          fill="#fff"
+        >
+          C++
+        </text>
+      </symbol>
+
+
+      <symbol id="i-go" viewBox="0 0 64 64">
+        <circle cx="32" cy="32" r="25" fill="#00ADD8"/>
+        <text
+          x="32"
+          y="39"
+          text-anchor="middle"
+          font-family="Arial,sans-serif"
+          font-size="22"
+          font-weight="800"
+          fill="#fff"
+        >
+          GO
+        </text>
+      </symbol>
+
+
+      <!-- ================= AI / ML ================= -->
+
+      <symbol id="i-pytorch" viewBox="0 0 64 64">
+        <path
+          fill="#EE4C2C"
+          d="M35 6 20 21a20 20 0 1 0 28 28l7-7-7-7-7 7a10 10 0 1 1-14-14l15-15-7-7Z"
+        />
+        <circle cx="46" cy="10" r="5" fill="#FFB04A"/>
+      </symbol>
+
+
+      <symbol id="i-tensorflow" viewBox="0 0 64 64">
+        <path
+          fill="#FF6F00"
+          d="M32 5 12 16v10l20-11 20 11V16L32 5Z"
+        />
+        <path
+          fill="#FF6F00"
+          d="M12 31v17l20 11V36L12 25v6Zm40 0v17L32 59V36l20-11v6Z"
+        />
+        <path
+          fill="#FF8A00"
+          d="M32 20v16l9-5v-7l-9-4Zm0 20v8l9-5v-8l-9 5Z"
+        />
+      </symbol>
+
+
+      <symbol id="i-hf" viewBox="0 0 64 64">
+        <rect
+          x="7"
+          y="12"
+          width="50"
+          height="40"
+          rx="12"
+          fill="#FFD21E"
+        />
+        <text
+          x="32"
+          y="40"
+          text-anchor="middle"
+          font-family="Arial,sans-serif"
+          font-size="20"
+          font-weight="800"
+          fill="#171717"
+        >
+          HF
+        </text>
+      </symbol>
+
+
+      <symbol id="i-langchain" viewBox="0 0 64 64">
+        <path
+          d="M18 22h13l7 7-7 7H18l-7-7 7-7Zm28 13h7l7 7-7 7H46l-7-7 7-7Zm-18 3h8l8 8-8 8h-8l-8-8 8-8Z"
+          fill="#22C55E"
+        />
+        <path
+          d="M25 29h20"
+          stroke="#fff"
+          stroke-width="4"
+          stroke-linecap="round"
+        />
+      </symbol>
+
+
+      <symbol id="i-rag" viewBox="0 0 64 64">
+        <ellipse
+          cx="25"
+          cy="15"
+          rx="15"
+          ry="6"
+          fill="#55A9FF"
+        />
+        <path
+          d="M10 15v22c0 4 7 6 15 6s15-2 15-6V15"
+          fill="#2477C9"
+        />
+        <ellipse
+          cx="25"
+          cy="37"
+          rx="15"
+          ry="6"
+          fill="#3C8FE2"
+        />
+        <path
+          d="m43 12 2 6 6 2-6 2-2 6-2-6-6-2 6-2 2-6Z"
+          fill="#8A7DFF"
+        />
+      </symbol>
+
+
+      <symbol id="i-opencv" viewBox="0 0 64 64">
+        <circle cx="19" cy="42" r="11" fill="#5C3EE8"/>
+        <circle cx="45" cy="42" r="11" fill="#F5A623"/>
+        <circle cx="32" cy="19" r="11" fill="#3BB54A"/>
+        <path
+          d="M25 27 21 34M39 27l4 7M28 42h8"
+          fill="none"
+          stroke="#fff"
+          stroke-width="5"
+          stroke-linecap="round"
+        />
+      </symbol>
+
+
+      <symbol id="i-faiss" viewBox="0 0 64 64">
+        <g
+          fill="none"
+          stroke="#55A9FF"
+          stroke-width="3"
+        >
+          <path d="M12 18 30 32 12 47M30 32l22-14M30 32l22 15"/>
+          <circle cx="12" cy="18" r="5" fill="#121318"/>
+          <circle cx="12" cy="47" r="5" fill="#121318"/>
+          <circle cx="30" cy="32" r="5" fill="#121318"/>
+          <circle cx="52" cy="18" r="5" fill="#121318"/>
+          <circle cx="52" cy="47" r="5" fill="#121318"/>
+        </g>
+      </symbol>
+
+
+      <symbol id="i-crewai" viewBox="0 0 64 64">
+        <circle cx="32" cy="32" r="8" fill="#FF8A3D"/>
+        <circle cx="12" cy="18" r="6" fill="#FFB04A"/>
+        <circle cx="52" cy="18" r="6" fill="#FFB04A"/>
+        <circle cx="12" cy="48" r="6" fill="#FFB04A"/>
+        <circle cx="52" cy="48" r="6" fill="#FFB04A"/>
+
+        <path
+          d="M17 21 27 28M47 21 37 28M17 45l10-11M47 45 37 34"
+          stroke="#FF8A3D"
+          stroke-width="4"
+        />
+      </symbol>
+
+
+      <!-- ================= BACKEND / CLOUD ================= -->
+
+      <symbol id="i-fastapi" viewBox="0 0 64 64">
+        <path
+          fill="#19B9A6"
+          d="m36 5-25 31h16l-3 23 25-34H33l3-20Z"
+        />
+      </symbol>
+
+
+      <symbol id="i-node" viewBox="0 0 64 64">
+        <polygon
+          points="32,5 55,18 55,46 32,59 9,46 9,18"
+          fill="#68A063"
+        />
+        <text
+          x="32"
+          y="40"
+          text-anchor="middle"
+          font-family="Arial,sans-serif"
+          font-size="18"
+          font-weight="800"
+          fill="#fff"
+        >
+          N
+        </text>
+      </symbol>
+
+
+      <symbol id="i-aws" viewBox="0 0 64 64">
+        <text
+          x="32"
+          y="35"
+          text-anchor="middle"
+          font-family="Arial,sans-serif"
+          font-size="21"
+          font-weight="800"
+          fill="#FF9900"
+        >
+          AWS
+        </text>
+        <path
+          d="M13 44c12 9 27 9 40 1"
+          fill="none"
+          stroke="#FF9900"
+          stroke-width="4"
+          stroke-linecap="round"
+        />
+      </symbol>
+
+
+      <symbol id="i-docker" viewBox="0 0 64 64">
+        <path
+          fill="#2496ED"
+          d="M9 35h8v8H9zm10-10h8v10h-8zm10 0h8v10h-8zm10 0h8v10h-8zM19 45h29c4 0 8-2 10-6-3-2-6-3-10-3H19v9Z"
+        />
+      </symbol>
+
+
+      <symbol id="i-terraform" viewBox="0 0 64 64">
+        <path
+          fill="#7B42BC"
+          d="M7 17 25 27v20L7 37V17Zm21 10 18-10v20L28 47V27Zm10 28 18-10v19L38 54V55Z"
+        />
+      </symbol>
+
+
+      <!-- ================= DATABASES ================= -->
+
+      <symbol id="i-postgres" viewBox="0 0 64 64">
+        <path
+          fill="#336791"
+          d="M18 10c8-6 26-4 29 6 2 6-1 12-4 17l-3 13c-2 6-8 8-12 4-2-2-2-6-2-9-5 2-10 0-12-5-3-7-2-21 4-26Z"
+        />
+        <text
+          x="32"
+          y="39"
+          text-anchor="middle"
+          font-family="Arial,sans-serif"
+          font-size="12"
+          font-weight="800"
+          fill="#fff"
+        >
+          PG
+        </text>
+      </symbol>
+
+
+      <symbol id="i-vector" viewBox="0 0 64 64">
+        <circle cx="12" cy="32" r="6" fill="#55A9FF"/>
+        <circle cx="52" cy="15" r="6" fill="#8A7DFF"/>
+        <circle cx="52" cy="49" r="6" fill="#8A7DFF"/>
+        <path
+          d="M18 31 45 17M18 34l27 13"
+          stroke="#55A9FF"
+          stroke-width="4"
+        />
+      </symbol>
+
+
+      <symbol id="i-mongo" viewBox="0 0 64 64">
+        <path
+          fill="#47A248"
+          d="M33 6c-3 11-1 18 5 25 6 8 4 18-5 27-9-8-12-18-7-27 5-9 7-16 7-25Z"
+        />
+        <path
+          d="M33 16v38"
+          stroke="#fff"
+          stroke-width="2"
+          opacity=".8"
+        />
+      </symbol>
+
+
+      <symbol id="i-pine" viewBox="0 0 64 64">
+        <path
+          fill="#22C55E"
+          d="M32 5 12 31h10L9 47h17v12h12V47h17L42 31h10L32 5Z"
+        />
+      </symbol>
+
+
+      <symbol id="i-redis" viewBox="0 0 64 64">
+        <path
+          fill="#D82C20"
+          d="m8 24 24-9 24 9-24 9-24-9Zm0 9 24 9 24-9v9l-24 9-24-9v-9Z"
+        />
+        <text
+          x="32"
+          y="28"
+          text-anchor="middle"
+          font-family="Arial,sans-serif"
+          font-size="8"
+          font-weight="800"
+          fill="#fff"
+        >
+          REDIS
+        </text>
+      </symbol>
+
+
+      <!-- ================= DATA / ENGINEERING ================= -->
+
+      <symbol id="i-git" viewBox="0 0 64 64">
+        <path
+          fill="#F05032"
+          d="M56 30 34 8a6 6 0 0 0-8 0L8 26a6 6 0 0 0 0 8l22 22a6 6 0 0 0 8 0l18-18a6 6 0 0 0 0-8Z"
+        />
+        <path
+          d="M22 21v18m0-9h12m0 0V18m0 12v13"
+          fill="none"
+          stroke="#fff"
+          stroke-width="4"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+
+
+      <symbol id="i-linux" viewBox="0 0 64 64">
+        <circle
+          cx="32"
+          cy="32"
+          r="25"
+          fill="#222"
+          stroke="#777"
+          stroke-width="2"
+        />
+        <path
+          fill="#fff"
+          d="M25 18c4-5 11-3 12 3 1 5-2 8 1 13 2 3 8 5 7 10-1 5-8 5-13 4-5 0-12 0-13-5-1-5 5-7 7-10 3-5-2-9-1-15Z"
+        />
+        <circle cx="29" cy="24" r="2" fill="#111"/>
+        <circle cx="36" cy="24" r="2" fill="#111"/>
+      </symbol>
+
+
+      <symbol id="i-api" viewBox="0 0 64 64">
+        <rect
+          x="7"
+          y="12"
+          width="50"
+          height="40"
+          rx="10"
+          fill="#8A7DFF"
+        />
+        <path
+          d="M18 32h28M23 24l-7 8 7 8M41 24l7 8-7 8"
+          fill="none"
+          stroke="#fff"
+          stroke-width="4"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+
+
+      <symbol id="i-pandas" viewBox="0 0 64 64">
+        <rect
+          x="12"
+          y="10"
+          width="12"
+          height="44"
+          rx="3"
+          fill="#2E75B6"
+        />
+        <rect
+          x="40"
+          y="10"
+          width="12"
+          height="44"
+          rx="3"
+          fill="#2E75B6"
+        />
+        <rect
+          x="26"
+          y="17"
+          width="12"
+          height="30"
+          rx="3"
+          fill="#8CC4E8"
+        />
+      </symbol>
+
+
+      <symbol id="i-numpy" viewBox="0 0 64 64">
+        <path
+          fill="#4DABCF"
+          d="m10 45 15-31 9 6-15 31-9-6Zm18 7 14-30 12 7-14 30-12-7Z"
+        />
+        <text
+          x="32"
+          y="37"
+          text-anchor="middle"
+          font-family="Arial,sans-serif"
+          font-size="10"
+          font-weight="800"
+          fill="#fff"
+        >
+          NP
+        </text>
+      </symbol>
+
+
+      <symbol id="i-sklearn" viewBox="0 0 64 64">
+        <circle cx="32" cy="32" r="25" fill="#F6B73C"/>
+        <path
+          d="M18 39c7-11 21-15 29-8"
+          fill="none"
+          stroke="#fff"
+          stroke-width="5"
+          stroke-linecap="round"
+        />
+        <circle cx="23" cy="25" r="5" fill="#3498DB"/>
+        <circle cx="42" cy="39" r="5" fill="#3498DB"/>
+      </symbol>
+
+
+      <symbol id="i-stats" viewBox="0 0 64 64">
+        <path
+          d="M10 51 24 36l9 7 18-24"
+          fill="none"
+          stroke="#55A9FF"
+          stroke-width="5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M45 19h6v6"
+          fill="none"
+          stroke="#8A7DFF"
+          stroke-width="4"
+        />
+      </symbol>
+
+    </defs>
+  </svg>
+
+
+  <!-- =========================================================
+       SHELL
+       ========================================================= -->
+
+  <div class="shell">
+
+    <!-- =======================================================
+         SIDEBAR
+         ======================================================= -->
+
+    <aside class="sidebar">
+
+      <div class="portrait">
+        <picture>
+          <source
+            srcset="resources/professional-portrait.webp"
+            type="image/webp"
+          >
+
+          <img
+            src="resources/professional-portrait.png"
+            alt="Muchukuntla Brahmanaidu"
+            width="616"
+            height="770"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+          >
+        </picture>
+      </div>
+
+
+      <div class="identity">
+
+        <h1>
+          Muchukuntla<br>
+          Brahmanaidu
+        </h1>
+
+        <div class="role">
+          Machine Learning &amp; AI Engineer
         </div>
 
-        <div class="flex-1">
-            <nav class="bg-white/80 backdrop-blur-sm border-b border-gray-100 sticky top-0 z-20">
-                <div class="px-8 py-4 flex justify-end">
-                    <div class="flex space-x-8">
-                        <a href="index.html" class="nav-link text-gray-600 font-medium">About</a>
-                        <a href="projects.html" class="nav-link text-gray-600 font-medium">Projects</a>
-                        <a href="skills.html" class="nav-link active text-gray-900 font-medium">Skills</a>
-                        <a href="ai-assistant.html" class="nav-link text-gray-600 font-medium">AI Assistant</a>
-                        <a href="contact.html" class="nav-link text-gray-600 font-medium">Contact</a>
-                    </div>
-                </div>
-            </nav>
+      </div>
 
-            <div class="px-8 py-12 max-w-6xl">
-                <section class="fade-in mb-12">
-                    <h2 class="text-4xl font-bold text-gray-900 mb-6">
-                        Technical Skills
-                        <span class="block w-16 h-1 bg-blue-900 mt-2"></span>
-                    </h2>
-                    <p class="text-lg text-gray-700">
-                        Comprehensive expertise across the machine learning and data science ecosystem, 
-                        from foundational programming to advanced AI/ML technologies.
-                    </p>
-                </section>
 
-                <section class="fade-in mb-16">
-                    <div class="card-shadow bg-white rounded-xl p-8">
-                        <h3 class="text-2xl font-semibold text-gray-900 mb-8">Skills Overview</h3>
-                        <div class="grid md:grid-cols-2 gap-x-12 gap-y-6">
-                            <div class="space-y-6">
-                                <div>
-                                    <div class="flex justify-between mb-2">
-                                        <span class="text-base font-medium text-gray-700">Python & Core</span>
-                                        <span class="text-base font-bold text-blue-900">90%</span>
-                                    </div>
-                                    <div class="w-full bg-gray-100 rounded-full h-2.5">
-                                        <div class="bg-blue-900 h-2.5 rounded-full" style="width: 90%"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-2">
-                                        <span class="text-base font-medium text-gray-700">ML & Deep Learning</span>
-                                        <span class="text-base font-bold text-blue-900">85%</span>
-                                    </div>
-                                    <div class="w-full bg-gray-100 rounded-full h-2.5">
-                                        <div class="bg-blue-900 h-2.5 rounded-full" style="width: 85%"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-2">
-                                        <span class="text-base font-medium text-gray-700">MLOps & Engineering</span>
-                                        <span class="text-base font-bold text-blue-900">80%</span>
-                                    </div>
-                                    <div class="w-full bg-gray-100 rounded-full h-2.5">
-                                        <div class="bg-blue-900 h-2.5 rounded-full" style="width: 80%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="space-y-6">
-                                <div>
-                                    <div class="flex justify-between mb-2">
-                                        <span class="text-base font-medium text-gray-700">Generative AI & NLP</span>
-                                        <span class="text-base font-bold text-blue-900">85%</span>
-                                    </div>
-                                    <div class="w-full bg-gray-100 rounded-full h-2.5">
-                                        <div class="bg-blue-900 h-2.5 rounded-full" style="width: 85%"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-2">
-                                        <span class="text-base font-medium text-gray-700">Data Visualization</span>
-                                        <span class="text-base font-bold text-blue-900">85%</span>
-                                    </div>
-                                    <div class="w-full bg-gray-100 rounded-full h-2.5">
-                                        <div class="bg-blue-900 h-2.5 rounded-full" style="width: 85%"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-2">
-                                        <span class="text-base font-medium text-gray-700">Tools & Technologies</span>
-                                        <span class="text-base font-bold text-blue-900">90%</span>
-                                    </div>
-                                    <div class="w-full bg-gray-100 rounded-full h-2.5">
-                                        <div class="bg-blue-900 h-2.5 rounded-full" style="width: 90%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+      <div class="divider"></div>
 
-                <section class="fade-in mb-16">
-                    <h3 class="text-2xl font-semibold text-gray-900 mb-8">Skill Categories</h3>
-                    
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-                        <div class="skill-category card-shadow bg-white rounded-xl p-6 border-2 border-transparent" 
-                             data-category="languages">
-                            <div class="tech-icon bg-blue-50 text-blue-900">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="16 18 22 12 16 6"></polyline>
-                                    <polyline points="8 6 2 12 8 18"></polyline>
-                                </svg>
-                            </div>
-                            <h4 class="text-lg font-semibold text-gray-900 mb-4">Languages & Core</h4>
-                            <div class="space-y-3">
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-sm text-gray-700">Python</span>
-                                        <span class="text-sm text-gray-600">Advanced</span>
-                                    </div>
-                                    <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-sm text-gray-700">SQL</span>
-                                        <span class="text-sm text-gray-600">Advanced</span>
-                                    </div>
-                                    <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-sm text-gray-700">Pandas</span>
-                                        <span class="text-sm text-gray-600">Advanced</span>
-                                    </div>
-                                    <div class="skill-bar"><div class="skill-progress" style="width: 88%"></div></div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-sm text-gray-700">NumPy</span>
-                                        <span class="text-sm text-gray-600">Advanced</span>
-                                    </div>
-                                    <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="skill-category card-shadow bg-white rounded-xl p-6 border-2 border-transparent" 
-                             data-category="mldl">
-                            <div class="tech-icon bg-green-50 text-green-900">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="3"></circle>
-                                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-                                </svg>
-                            </div>
-                            <h4 class="text-lg font-semibold text-gray-900 mb-4">ML & Deep Learning</h4>
-                            <div class="space-y-3">
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-sm text-gray-700">PyTorch</span>
-                                        <span class="text-sm text-gray-600">Advanced</span>
-                                    </div>
-                                    <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-sm text-gray-700">Scikit-learn</span>
-                                        <span class="text-sm text-gray-600">Advanced</span>
-                                    </div>
-                                    <div class="skill-bar"><div class="skill-progress" style="width: 88%"></div></div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-sm text-gray-700">TensorFlow</span>
-                                        <span class="text-sm text-gray-600">Intermediate</span>
-                                    </div>
-                                    <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-sm text-gray-700">XGBoost</span>
-                                        <span class="text-sm text-gray-600">Intermediate</span>
-                                    </div>
-                                    <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
-                                </div>
-                            </div>
-                        </div>
+      <div class="contact-list">
 
-                        <div class="skill-category card-shadow bg-white rounded-xl p-6 border-2 border-transparent" 
-                             data-category="mlops">
-                            <div class="tech-icon bg-purple-50 text-purple-900">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
-                                    <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
-                                    <line x1="6" y1="6" x2="6.01" y2="6"></line>
-                                    <line x1="6" y1="18" x2="6.01" y2="18"></line>
-                                </svg>
-                            </div>
-                            <h4 class="text-lg font-semibold text-gray-900 mb-4">MLOps & Engineering</h4>
-                            <div class="space-y-3">
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-sm text-gray-700">FastAPI</span>
-                                        <span class="text-sm text-gray-600">Advanced</span>
-                                    </div>
-                                    <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-sm text-gray-700">Docker</span>
-                                        <span class="text-sm text-gray-600">Advanced</span>
-                                    </div>
-                                    <div class="skill-bar"><div class="skill-progress" style="width: 82%"></div></div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-sm text-gray-700">MLflow</span>
-                                        <span class="text-sm text-gray-600">Intermediate</span>
-                                    </div>
-                                    <div class="skill-bar"><div class="skill-progress" style="width: 78%"></div></div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-sm text-gray-700">AWS</span>
-                                        <span class="text-sm text-gray-600">Intermediate</span>
-                                    </div>
-                                    <div class="skill-bar"><div class="skill-progress" style="width: 70%"></div></div>
-                                </div>
-                            </div>
-                        </div>
+        <div class="contact">
 
-                        <div class="skill-category card-shadow bg-white rounded-xl p-6 border-2 border-transparent" 
-                             data-category="nlp">
-                            <div class="tech-icon bg-orange-50 text-orange-900">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                                </svg>
-                            </div>
-                            <h4 class="text-lg font-semibold text-gray-900 mb-4">Generative AI & NLP</h4>
-                            <div class="space-y-3">
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-sm text-gray-700">LangChain</span>
-                                        <span class="text-sm text-gray-600">Advanced</span>
-                                    </div>
-                                    <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-sm text-gray-700">Hugging Face</span>
-                                        <span class="text-sm text-gray-600">Advanced</span>
-                                    </div>
-                                    <div class="skill-bar"><div class="skill-progress" style="width: 88%"></div></div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-sm text-gray-700">BERT</span>
-                                        <span class="text-sm text-gray-600">Advanced</span>
-                                    </div>
-                                    <div class="skill-bar"><div class="skill-progress" style="width: 82%"></div></div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-sm text-gray-700">LLMs</span>
-                                        <span class="text-sm text-gray-600">Intermediate</span>
-                                    </div>
-                                    <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
-                                </div>
-                            </div>
-                        </div>
+          <div class="contact-icon">
+            MAIL
+          </div>
 
-                        <div class="skill-category card-shadow bg-white rounded-xl p-6 border-2 border-transparent" 
-                             data-category="visualization">
-                            <div class="tech-icon bg-red-50 text-red-900">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <line x1="18" y1="20" x2="18" y2="10"></line>
-                                    <line x1="12" y1="20" x2="12" y2="4"></line>
-                                    <line x1="6" y1="20" x2="6" y2="14"></line>
-                                </svg>
-                            </div>
-                            <h4 class="text-lg font-semibold text-gray-900 mb-4">Data Visualization</h4>
-                            <div class="space-y-3">
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-sm text-gray-700">Power BI</span>
-                                        <span class="text-sm text-gray-600">Advanced</span>
-                                    </div>
-                                    <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-sm text-gray-700">Matplotlib</span>
-                                        <span class="text-sm text-gray-600">Advanced</span>
-                                    </div>
-                                    <div class="skill-bar"><div class="skill-progress" style="width: 88%"></div></div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-sm text-gray-700">Seaborn</span>
-                                        <span class="text-sm text-gray-600">Advanced</span>
-                                    </div>
-                                    <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-sm text-gray-700">Prophet</span>
-                                        <span class="text-sm text-gray-600">Intermediate</span>
-                                    </div>
-                                    <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
-                                </div>
-                            </div>
-                        </div>
+          <div>
+            <small>Email</small>
 
-                        <div class="skill-category card-shadow bg-white rounded-xl p-6 border-2 border-transparent" 
-                             data-category="tools">
-                            <div class="tech-icon bg-gray-100 text-gray-900">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="4 17 10 11 4 5"></polyline>
-                                    <line x1="12" y1="19" x2="20" y2="19"></line>
-                                </svg>
-                            </div>
-                            <h4 class="text-lg font-semibold text-gray-900 mb-4">Tools & Technologies</h4>
-                            <div class="space-y-3">
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-sm text-gray-700">Git</span>
-                                        <span class="text-sm text-gray-600">Advanced</span>
-                                    </div>
-                                    <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-sm text-gray-700">Jupyter</span>
-                                        <span class="text-sm text-gray-600">Advanced</span>
-                                    </div>
-                                    <div class="skill-bar"><div class="skill-progress" style="width: 88%"></div></div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-sm text-gray-700">VS Code</span>
-                                        <span class="text-sm text-gray-600">Advanced</span>
-                                    </div>
-                                    <div class="skill-bar"><div class="skill-progress" style="width: 92%"></div></div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-sm text-gray-700">FAISS</span>
-                                        <span class="text-sm text-gray-600">Intermediate</span>
-                                    </div>
-                                    <div class="skill-bar"><div class="skill-progress" style="width: 78%"></div></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+            <a href="mailto:brahmanaidu.official@gmail.com">
+              brahmanaidu.official@gmail.com
+            </a>
+          </div>
 
-                <section class="fade-in">
-                    <h3 class="text-2xl font-semibold text-gray-900 mb-8">Certifications</h3>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div class="certification-badge card-shadow bg-white rounded-xl p-6 text-center">
-                            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <svg class="w-8 h-8 text-blue-900" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                </svg>
-                            </div>
-                            <h4 class="text-lg font-semibold text-gray-900 mb-2">Google Data Analytics</h4>
-                            <p class="text-gray-600 text-sm">Professional Certificate</p>
-                            <p class="text-blue-900 font-medium text-sm mt-2">Coursera</p>
-                        </div>
-                        
-                        <div class="certification-badge card-shadow bg-white rounded-xl p-6 text-center">
-                            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <svg class="w-8 h-8 text-green-900" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                </svg>
-                            </div>
-                            <h4 class="text-lg font-semibold text-gray-900 mb-2">Data Science & ML</h4>
-                            <p class="text-gray-600 text-sm">Bootcamp Certificate</p>
-                            <p class="text-green-900 font-medium text-sm mt-2">Udemy</p>
-                        </div>
-                        
-                        <div class="certification-badge card-shadow bg-white rounded-xl p-6 text-center">
-                            <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <svg class="w-8 h-8 text-purple-900" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                </svg>
-                            </div>
-                            <h4 class="text-lg font-semibold text-gray-900 mb-2">Data Science Internship</h4>
-                            <p class="text-gray-600 text-sm">Completion Certificate</p>
-                            <p class="text-purple-900 font-medium text-sm mt-2">Brainovision</p>
-                        </div>
-                    </div>
-                </section>
-            </div>
         </div>
+
+
+        <div class="contact">
+
+          <div class="contact-icon">
+            LOC
+          </div>
+
+          <div>
+            <small>Location</small>
+
+            <span>
+              Andhra Pradesh, India
+            </span>
+          </div>
+
+        </div>
+
+
+        <div class="contact">
+
+          <div class="contact-icon">
+            WEB
+          </div>
+
+          <div>
+            <small>GitHub</small>
+
+            <a
+              href="https://github.com/Naidi47"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              github.com/Naidi47
+            </a>
+          </div>
+
+        </div>
+
+
+        <div class="contact">
+
+          <div class="contact-icon">
+            IN
+          </div>
+
+          <div>
+            <small>LinkedIn</small>
+
+            <a
+              href="https://www.linkedin.com/in/brahmanaidu-muchukuntla-17a1a9242/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              linkedin.com/in/brahmanaidu-muchukuntla-17a1a9242
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="socials">
+
+        <a
+          class="social"
+          href="https://github.com/Naidi47"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GH
+        </a>
+
+        <a
+          class="social"
+          href="https://www.linkedin.com/in/brahmanaidu-muchukuntla-17a1a9242/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          IN
+        </a>
+
+        <a
+          class="social"
+          href="https://twitter.com/ursfvrtnaidu47"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          X
+        </a>
+
+        <a
+          class="social"
+          href="https://reddit.com/u/Sea-Television-3780"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          RD
+        </a>
+
+      </div>
+
+
+      <a
+        class="resume"
+        href="Brahmanaidu_Resume.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        View Resume ↗
+      </a>
+
+    </aside>
+
+
+    <!-- =======================================================
+         MAIN
+         ======================================================= -->
+
+    <main class="main">
+
+      <!-- MOBILE PROFILE -->
+
+      <div
+        class="mobilebar"
+        data-mobile-profile
+      >
+
+        <div class="mobile-profile-head">
+
+          <div class="mobile-profile-portrait">
+
+            <picture>
+
+              <source
+                srcset="resources/professional-portrait.webp"
+                type="image/webp"
+              >
+
+              <img
+                src="resources/professional-portrait.png"
+                alt="Muchukuntla Brahmanaidu"
+                width="616"
+                height="770"
+                loading="eager"
+                decoding="async"
+              >
+
+            </picture>
+
+          </div>
+
+
+          <div class="mobile-profile-identity">
+
+            <strong>
+              Muchukuntla<br>
+              Brahmanaidu
+            </strong>
+
+            <span class="role">
+              Machine Learning &amp; AI Engineer
+            </span>
+
+          </div>
+
+
+          <button
+            class="mobile-profile-toggle"
+            type="button"
+            data-mobile-profile-toggle
+            aria-expanded="false"
+            aria-controls="mobile-profile-details"
+            aria-label="Show profile details"
+          >
+            <span>⌄</span>
+          </button>
+
+        </div>
+
+
+        <div
+          class="mobile-profile-details"
+          id="mobile-profile-details"
+          hidden
+        >
+
+          <div class="mobile-contact-list">
+
+            <a href="mailto:brahmanaidu.official@gmail.com">
+              <span>MAIL</span>
+              <strong>
+                brahmanaidu.official@gmail.com
+              </strong>
+            </a>
+
+            <div>
+              <span>LOC</span>
+              <strong>
+                Andhra Pradesh, India
+              </strong>
+            </div>
+
+            <a
+              href="https://github.com/Naidi47"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>WEB</span>
+              <strong>
+                github.com/Naidi47
+              </strong>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/brahmanaidu-muchukuntla-17a1a9242/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>IN</span>
+              <strong>
+                linkedin.com/in/brahmanaidu-muchukuntla
+              </strong>
+            </a>
+
+          </div>
+
+
+          <div class="mobile-socials">
+
+            <a
+              href="https://github.com/Naidi47"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GH
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/brahmanaidu-muchukuntla-17a1a9242/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              IN
+            </a>
+
+            <a
+              href="https://twitter.com/ursfvrtnaidu47"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              X
+            </a>
+
+            <a
+              href="https://reddit.com/u/Sea-Television-3780"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              RD
+            </a>
+
+          </div>
+
+
+          <a
+            class="mobile-resume"
+            href="Brahmanaidu_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View Resume ↗
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- =====================================================
+           NAV
+           ===================================================== -->
+
+      <nav class="topnav">
+
+        <div class="nav">
+
+          <a href="index.html">
+            About
+          </a>
+
+          <a href="projects.html">
+            Projects
+          </a>
+
+          <a
+            class="active"
+            href="skills.html"
+          >
+            Skills
+          </a>
+
+          <a href="ai-assistant.html">
+            AI Assistant
+          </a>
+
+          <a href="contact.html">
+            Contact
+          </a>
+
+          <button
+            type="button"
+            data-theme-toggle
+            aria-label="Toggle theme"
+          >
+            ◐
+          </button>
+
+          <button
+            type="button"
+            data-palette
+            aria-label="Open command palette"
+          >
+            ⌘ K
+          </button>
+
+        </div>
+
+      </nav>
+
+
+      <!-- =====================================================
+           SKILLS CONTENT
+           ===================================================== -->
+
+      <section class="skills-page">
+
+        <div class="head reveal skills-heading">
+
+          <div class="label">
+            01 / TECHNICAL STACK
+          </div>
+
+          <h2>
+            Tools I use to build.
+          </h2>
+
+          <p>
+            A visual overview of the languages, AI/ML frameworks,
+            cloud systems and data technologies I work with.
+          </p>
+
+        </div>
+
+
+        <!-- ===================================================
+             PROGRAMMING
+             =================================================== -->
+
+        <div class="skill-category reveal">
+
+          <div class="skill-category-title">
+
+            <span>
+              01
+            </span>
+
+            <h3>
+              Programming Languages
+            </h3>
+
+          </div>
+
+
+          <div class="skill-icon-grid">
+
+            <div class="skill-icon-card">
+              <div class="skill-icon">
+                <svg>
+                  <use href="#i-python"></use>
+                </svg>
+              </div>
+              <strong>Python</strong>
+              <small>Advanced</small>
+            </div>
+
+
+            <div class="skill-icon-card">
+              <div class="skill-icon">
+                <svg>
+                  <use href="#i-sql"></use>
+                </svg>
+              </div>
+              <strong>SQL</strong>
+              <small>Data &amp; Queries</small>
+            </div>
+
+
+            <div class="skill-icon-card">
+              <div class="skill-icon">
+                <svg>
+                  <use href="#i-js"></use>
+                </svg>
+              </div>
+              <strong>JavaScript</strong>
+              <small>Web</small>
+            </div>
+
+
+            <div class="skill-icon-card">
+              <div class="skill-icon">
+                <svg>
+                  <use href="#i-cpp"></use>
+                </svg>
+              </div>
+              <strong>C++</strong>
+              <small>Programming</small>
+            </div>
+
+
+            <div class="skill-icon-card">
+              <div class="skill-icon">
+                <svg>
+                  <use href="#i-go"></use>
+                </svg>
+              </div>
+              <strong>Go</strong>
+              <small>Backend</small>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- ===================================================
+             AI / ML
+             =================================================== -->
+
+        <div class="skill-category reveal">
+
+          <div class="skill-category-title">
+
+            <span>
+              02
+            </span>
+
+            <h3>
+              AI / ML
+            </h3>
+
+          </div>
+
+
+          <div class="skill-icon-grid">
+
+            <div class="skill-icon-card">
+              <div class="skill-icon">
+                <svg>
+                  <use href="#i-pytorch"></use>
+                </svg>
+              </div>
+              <strong>PyTorch</strong>
+              <small>Deep Learning</small>
+            </div>
+
+
+            <div class="skill-icon-card">
+              <div class="skill-icon">
+                <svg>
+                  <use href="#i-tensorflow"></use>
+                </svg>
+              </div>
+              <strong>TensorFlow</strong>
+              <small>Deep Learning</small>
+            </div>
+
+
+            <div class="skill-icon-card">
+              <div class="skill-icon">
+                <svg>
+                  <use href="#i-hf"></use>
+                </svg>
+              </div>
+              <strong>Hugging Face</strong>
+              <small>Transformers</small>
+            </div>
+
+
+            <div class="skill-icon-card">
+              <div class="skill-icon">
+                <svg>
+                  <use href="#i-langchain"></use>
+                </svg>
+              </div>
+              <strong>LangChain</strong>
+              <small>LLM Apps</small>
+            </div>
+
+
+            <div class="skill-icon-card">
+              <div class="skill-icon">
+                <svg>
+                  <use href="#i-rag"></use>
+                </svg>
+              </div>
+              <strong>RAG / LLMs</strong>
+              <small>Generative AI</small>
+            </div>
+
+
+            <div class="skill-icon-card">
+              <div class="skill-icon">
+                <svg>
+                  <use href="#i-opencv"></use>
+                </svg>
+              </div>
+              <strong>OpenCV</strong>
+              <small>Computer Vision</small>
+            </div>
+
+
+            <div class="skill-icon-card">
+              <div class="skill-icon">
+                <svg>
+                  <use href="#i-faiss"></use>
+                </svg>
+              </div>
+              <strong>FAISS</strong>
+              <small>Vector Search</small>
+            </div>
+
+
+            <div class="skill-icon-card">
+              <div class="skill-icon">
+                <svg>
+                  <use href="#i-crewai"></use>
+                </svg>
+              </div>
+              <strong>CrewAI</strong>
+              <small>Agents</small>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- ===================================================
+             BACKEND & CLOUD
+             =================================================== -->
+
+        <div class="skill-category reveal">
+
+          <div class="skill-category-title">
+
+            <span>
+              03
+            </span>
+
+            <h3>
+              Backend &amp; Cloud
+            </h3>
+
+          </div>
+
+
+          <div class="skill-icon-grid">
+
+            <div class="skill-icon-card">
+              <div class="skill-icon">
+                <svg>
+                  <use href="#i-fastapi"></use>
+                </svg>
+              </div>
+              <strong>FastAPI</strong>
+              <small>APIs</small>
+            </div>
+
+
+            <div class="skill-icon-card">
+              <div class="skill-icon">
+                <svg>
+                  <use href="#i-node"></use>
+                </svg>
+              </div>
+              <strong>Node.js</strong>
+              <small>Backend</small>
+            </div>
+
+
+            <div class="skill-icon-card">
+              <div class="skill-icon">
+                <svg>
+                  <use href="#i-aws"></use>
+                </svg>
+              </div>
+              <strong>AWS</strong>
+              <small>Cloud</small>
+            </div>
+
+
+            <div class="skill-icon-card">
+              <div class="skill-icon">
+                <svg>
+                  <use href="#i-docker"></use>
+                </svg>
+              </div>
+              <strong>Docker</strong>
+              <small>Containers</small>
+            </div>
+
+
+            <div class="skill-icon-card">
+              <div class="skill-icon">
+                <svg>
+                  <use href="#i-terraform"></use>
+                </svg>
+              </div>
+              <strong>Terraform</strong>
+              <small>Infrastructure</small>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- ===================================================
+             DATABASES
+             =================================================== -->
+
+        <div class="skill-category reveal">
+
+          <div class="skill-category-title">
+
+            <span>
+              04
+            </span>
+
+            <h3>
+              Databases &amp; Vector Search
+            </h3>
+
+          </div>
+
+
+          <div class="skill-icon-grid">
+
+            <div class="skill-icon-card">
+              <div class="skill-icon">
+                <svg>
+                  <use href="#i-postgres"></use>
+                </svg>
+              </div>
+              <strong>PostgreSQL</strong>
+              <small>Database</small>
+            </div>
+
+
+            <div class="skill-icon-card">
+              <div class="skill-icon">
+                <svg>
+                  <use href="#i-vector"></use>
+                </svg>
+              </div>
+              <strong>pgvector</strong>
+              <small>Embeddings</small>
+            </div>
+
+
+            <div class="skill-icon-card">
+              <div class="skill-icon">
+                <svg>
+                  <use href="#i-mongo"></use>
+                </svg>
+              </div>
+              <strong>MongoDB</strong>
+              <small>Document DB</small>
+            </div>
+
+
+            <div class="skill-icon-card">
+              <div class="skill-icon">
+                <svg>
+                  <use href="#i-pine"></use>
+                </svg>
+              </div>
+              <strong>Pinecone</strong>
+              <small>Vector DB</small>
+            </div>
+
+
+            <div class="skill-icon-card">
+              <div class="skill-icon">
+                <svg>
+                  <use href="#i-redis"></use>
+                </svg>
+              </div>
+              <strong>Redis</strong>
+              <small>Cache</small>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- ===================================================
+             DATA & ENGINEERING
+             =================================================== -->
+
+        <div class="skill-category reveal">
+
+          <div class="skill-category-title">
+
+            <span>
+              05
+            </span>
+
+            <h3>
+              Data &amp; Engineering
+            </h3>
+
+          </div>
+
+
+          <div class="skill-icon-grid">
+
+            <div class="skill-icon-card">
+              <div class="skill-icon">
+                <svg>
+                  <use href="#i-pandas"></use>
+                </svg>
+              </div>
+              <strong>Pandas</strong>
+              <small>Data Analysis</small>
+            </div>
+
+
+            <div class="skill-icon-card">
+              <div class="skill-icon">
+                <svg>
+                  <use href="#i-numpy"></use>
+                </svg>
+              </div>
+              <strong>NumPy</strong>
+              <small>Numerical</small>
+            </div>
+
+
+            <div class="skill-icon-card">
+              <div class="skill-icon">
+                <svg>
+                  <use href="#i-sklearn"></use>
+                </svg>
+              </div>
+              <strong>Scikit-learn</strong>
+              <small>Machine Learning</small>
+            </div>
+
+
+            <div class="skill-icon-card">
+              <div class="skill-icon">
+                <svg>
+                  <use href="#i-git"></use>
+                </svg>
+              </div>
+              <strong>Git / GitHub</strong>
+              <small>Version Control</small>
+            </div>
+
+
+            <div class="skill-icon-card">
+              <div class="skill-icon">
+                <svg>
+                  <use href="#i-linux"></use>
+                </svg>
+              </div>
+              <strong>Linux</strong>
+              <small>Systems</small>
+            </div>
+
+
+            <div class="skill-icon-card">
+              <div class="skill-icon">
+                <svg>
+                  <use href="#i-api"></use>
+                </svg>
+              </div>
+              <strong>REST APIs</strong>
+              <small>Services</small>
+            </div>
+
+
+            <div class="skill-icon-card">
+              <div class="skill-icon">
+                <svg>
+                  <use href="#i-stats"></use>
+                </svg>
+              </div>
+              <strong>Statistics</strong>
+              <small>Foundations</small>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           CERTIFICATIONS
+           ===================================================== -->
+
+      <section>
+
+        <div class="head reveal">
+
+          <div class="label">
+            02 / CERTIFICATIONS
+          </div>
+
+          <h2>
+            Learning with intent.
+          </h2>
+
+        </div>
+
+
+        <div class="certgrid">
+
+          <div class="mini reveal">
+            <span>GOOGLE · COURSERA</span>
+            <h3>
+              Google Data Analytics Professional Certificate
+            </h3>
+          </div>
+
+          <div class="mini reveal">
+            <span>UDEMY</span>
+            <h3>
+              Data Science &amp; Machine Learning Bootcamp
+            </h3>
+          </div>
+
+          <div class="mini reveal">
+            <span>BRAINOVISION</span>
+            <h3>
+              Data Science Internship
+            </h3>
+          </div>
+
+          <div class="mini reveal">
+            <span>EDX</span>
+            <h3>
+              Problem Solving &amp; Critical Thinking
+            </h3>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           LEARNING / RESEARCH
+           ===================================================== -->
+
+      <section>
+
+        <div class="head reveal">
+
+          <div class="label">
+            03 / LEARNING &amp; RESEARCH
+          </div>
+
+          <h2>
+            Strengthening the foundations.
+          </h2>
+
+        </div>
+
+
+        <div class="research">
+
+          <div class="mini reveal">
+            <span>FOUNDATIONS</span>
+            <h3>
+              Mathematics for Machine Learning
+            </h3>
+          </div>
+
+          <div class="mini reveal">
+            <span>DEEP LEARNING</span>
+            <h3>
+              Neural Networks &amp; Representation Learning
+            </h3>
+          </div>
+
+          <div class="mini reveal">
+            <span>VISION</span>
+            <h3>
+              Computer Vision
+            </h3>
+          </div>
+
+          <div class="mini reveal">
+            <span>GEN AI</span>
+            <h3>
+              Generative AI &amp; LLM Workflows
+            </h3>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           FOOTER
+           ===================================================== -->
+
+      <footer>
+
+        <span>
+          Muchukuntla Brahmanaidu
+        </span>
+
+        <span>
+          Machine Learning · Generative AI · Intelligent Systems
+        </span>
+
+        <span>
+          © 2026
+        </span>
+
+      </footer>
+
+    </main>
+
+  </div>
+
+
+  <!-- =========================================================
+       MOBILE NAV
+       ========================================================= -->
+
+  <nav class="mobile-nav">
+
+    <a href="index.html">
+      ABOUT
+    </a>
+
+    <a href="projects.html">
+      WORK
+    </a>
+
+    <a
+      href="skills.html"
+      class="active"
+    >
+      SKILLS
+    </a>
+
+    <a href="ai-assistant.html">
+      AI
+    </a>
+
+    <a href="contact.html">
+      CONTACT
+    </a>
+
+  </nav>
+
+
+  <!-- =========================================================
+       COMMAND PALETTE
+       ========================================================= -->
+
+  <div
+    class="palette"
+    aria-hidden="true"
+  >
+
+    <div
+      class="palette-box"
+      role="dialog"
+      aria-label="Command palette"
+    >
+
+      <input
+        class="search"
+        placeholder="Search commands…"
+        aria-label="Search commands"
+      >
+
+      <div class="commands">
+
+        <button
+          type="button"
+          class="command"
+          data-action="about"
+        >
+          → Go to About
+        </button>
+
+        <button
+          type="button"
+          class="command"
+          data-action="projects"
+        >
+          → Open Projects
+        </button>
+
+        <button
+          type="button"
+          class="command"
+          data-action="skills"
+        >
+          → Open Skills
+        </button>
+
+        <button
+          type="button"
+          class="command"
+          data-action="assistant"
+        >
+          → Open AI Assistant
+        </button>
+
+        <button
+          type="button"
+          class="command"
+          data-action="contact"
+        >
+          → Contact Me
+        </button>
+
+        <button
+          type="button"
+          class="command"
+          data-action="resume"
+        >
+          → Download Resume
+        </button>
+
+        <button
+          type="button"
+          class="command"
+          data-action="theme"
+        >
+          → Toggle Theme
+        </button>
+
+      </div>
+
     </div>
 
-    <script src="main.js"></script>
+  </div>
+
+
+  <script src="main.js"></script>
+
 </body>
 </html>
